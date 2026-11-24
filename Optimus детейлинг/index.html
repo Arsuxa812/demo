@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta name="robots" content="noindex,nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Optimus — детейлинг на Посадской, 3</title>
+<meta name="description" content="Мойка, химчистка, полировка, керамика, плёнка и кузовной ремонт. Посадская, 3, Екатеринбург. 5,0 в 2ГИС.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tektur:wght@500;800&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
+/* ===== ВСЕ ДАННЫЕ — менять только здесь ===== */
+const DATA = {
+  wa: "79126451984", tel: "+79126451984", phone: "+7 912 645-19-84", firm: "70000001034290289",
+  addr: "Посадская, 3", hours: "Каждый день 10:00–20:00", rating: "5,0", reviews: 49,
+  // [работа, пояснение, цена/пометка ("" — по осмотру)]
+  works: [["Мойка","кузов и салон, воск или кварц",""],["Химчистка салона","сиденья, потолок, ковры",""],
+          ["Полировка кузова","уберём царапины и мутность",""],["Керамика","защитное покрытие","−50% сейчас"],
+          ["Защитная плёнка","оклейка кузова",""],["Тонировка","стёкла",""],
+          ["Кузовной ремонт","покраска от 1 дня, вмятины","от 6 900 ₽"],["ТО и шиномонтаж","",""]],
+  quotes: [["Оставил зацарапанную и грязную по салону машину, забрал зеркально блестящую.","полировка + керамика + салон"],
+           ["Привозил на комплекс: полировка, керамика и полная химчистка. Результат превзошёл ожидания.","комплекс"],
+           ["Делал химчистку сидений и мойку салона. Езжу не первый раз, всё устраивает.","химчистка"]]
+};
+</script>
+<style>
+:root{--box:#141619;--panel:#1d2024;--fg:#ecebe6;--mute:#8d9096;--lamp:#ffe9b8;--line:#2c3036;--wa:#25d366}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--box)}
+body{color:var(--fg);font:16px/1.55 "Onest",Arial,sans-serif;padding-bottom:calc(84px + env(safe-area-inset-bottom));overflow-x:hidden}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+:focus-visible{outline:2px solid var(--lamp);outline-offset:3px}
+.w{max-width:620px;margin:0 auto;padding:0 18px}
+/* бокс с лампой */
+.box{position:relative;height:100vh;min-height:560px;overflow:hidden;touch-action:pan-y;cursor:none}
+.box .pic{position:absolute;inset:0;background:url(img/salon.jpg) 50% 40%/cover}
+.box .dark{position:absolute;inset:0;background:radial-gradient(circle var(--r,130px) at var(--x,60%) var(--y,42%),rgba(20,22,25,0) 0,rgba(20,22,25,.55) 55%,rgba(20,22,25,.96) 100%)}
+.box .glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle 60px at var(--x,60%) var(--y,42%),rgba(255,233,184,.18),transparent 70%);mix-blend-mode:screen}
+.brand{position:absolute;top:18px;left:18px;font:800 20px "Tektur",sans-serif;letter-spacing:.04em;z-index:2}
+.btel{position:absolute;top:20px;right:18px;z-index:2;text-decoration:none;font-weight:700}
+.hint{position:absolute;left:0;right:0;top:46%;text-align:center;color:var(--mute);font-size:14px;transition:opacity .4s;z-index:2}
+.head{position:absolute;left:18px;right:18px;bottom:calc(104px + env(safe-area-inset-bottom));z-index:2}
+.head h1{font:800 clamp(38px,11vw,64px)/.95 "Tektur",sans-serif;background:linear-gradient(100deg,#9a9da3 0%,#9a9da3 var(--s,40%),#fff calc(var(--s,40%) + 6%),#9a9da3 calc(var(--s,40%) + 12%),#9a9da3 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.head p{margin-top:12px;color:#c5c7cb;max-width:32ch}
+h2{font:800 28px/1.1 "Tektur",sans-serif;margin:52px 0 6px}
+.note{color:var(--mute);font-size:14px}
+/* список работ */
+.wk{display:flex;width:100%;text-align:left;align-items:center;gap:14px;padding:15px 4px;border-bottom:1px solid var(--line)}
+.wk .ck{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid #55595f;display:grid;place-items:center;transition:background .2s,border-color .2s}
+.wk .ck::after{content:"";width:11px;height:6px;border:solid #141619;border-width:0 0 3px 3px;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.wk[aria-pressed=true] .ck{background:var(--lamp);border-color:var(--lamp)}.wk[aria-pressed=true] .ck::after{opacity:1}
+.wk div{flex:1}.wk b{display:block;font-weight:500}.wk small{color:var(--mute);font-size:13px}
+.wk em{font-style:normal;font-size:13px;color:var(--lamp);white-space:nowrap}
+.msg{margin-top:18px;padding:16px;background:var(--panel);border-radius:14px;border-left:3px solid var(--lamp)}
+.msg p{white-space:pre-line;color:#d6d7da;font-size:15px}
+.send{display:block;width:100%;margin-top:12px;padding:16px;border-radius:12px;background:var(--wa);color:#08210f;font-weight:700;text-align:center;text-decoration:none}
+.send[aria-disabled=true]{background:#2a2d32;color:var(--mute);pointer-events:none}
+blockquote{padding:18px 0;border-bottom:1px solid var(--line);font-size:18px}
+blockquote cite{display:block;margin-top:6px;font-style:normal;font-size:13px;color:var(--mute)}
+.score{display:flex;align-items:baseline;gap:12px;margin-top:6px}.score b{font:800 56px/1 "Tektur",sans-serif;color:var(--lamp)}
+.where p{margin-top:8px}
+footer{max-width:620px;margin:46px auto 0;padding:0 18px;font-size:12px;color:var(--mute)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--box);border-top:1px solid var(--line)}
+.bar a{flex:1;text-align:center;padding:14px;border-radius:12px;font-weight:700;text-decoration:none}
+.bar .c{border:1px solid #444950}.bar .r{background:var(--lamp);color:#141619;flex:1.5}
+@media (hover:none){.box{cursor:auto}}
+</style></head><body>
+<section class="box" id="box" aria-label="Салон автомобиля под лампой">
+  <div class="pic"></div><div class="dark"></div><div class="glow"></div>
+  <span class="brand">OPTIMUS</span><a class="btel" id="bt"></a>
+  <p class="hint" id="hint">Проведите пальцем, чтобы посветить лампой</p>
+  <div class="head"><h1 id="h1">Блеск, который видно под лампой</h1><p>Детейлинг на Посадской, 3: мойка, химчистка, полировка, керамика и кузовной ремонт.</p></div>
+</section>
+<div class="w">
+  <h2>Что сделать с машиной</h2><p class="note">Отметьте работы. Соберём сообщение мастеру, цену он назовёт после осмотра.</p>
+  <div id="works" style="margin-top:8px"></div>
+  <div class="msg"><p id="msg"></p></div>
+  <a class="send" id="send" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+  <h2>Что говорят</h2>
+  <div class="score"><b id="sc"></b><span class="note" id="sn"></span></div>
+  <div id="qs"></div>
+  <p class="note" style="margin-top:12px"><a id="allr">Все отзывы в 2ГИС</a></p>
+  <h2>Где бокс</h2>
+  <div class="where"><p id="ad"></p><p id="hr"></p><p><a id="route">Маршрут в 2ГИС</a></p></div>
+</div>
+<footer>Демо-версия сайта для детейлинга Optimus. Данные и фото из открытой карточки 2ГИС.</footer>
+<nav class="bar"><a class="c" id="call">Позвонить</a><a class="r" href="#works">Выбрать работы</a></nav>
+<script>
+const $=i=>document.getElementById(i),D=DATA,on=new Set();
+$("bt").href=$("call").href="tel:"+D.tel;$("bt").textContent=D.phone;
+$("sc").textContent=D.rating;$("sn").textContent="из 5, "+D.reviews+" отзывов в 2ГИС";
+$("ad").textContent=D.addr;$("hr").textContent=D.hours;
+$("route").href="https://2gis.ru/ekaterinburg/firm/"+D.firm;$("allr").href=$("route").href+"/tab/reviews";
+$("qs").innerHTML=D.quotes.map(q=>`<blockquote>«${q[0]}»<cite>${q[1]}, 2ГИС</cite></blockquote>`).join("");
+$("works").innerHTML=D.works.map((w,i)=>`<button class="wk" type="button" aria-pressed="false" data-i="${i}"><span class="ck"></span><div><b>${w[0]}</b>${w[1]?`<small>${w[1]}</small>`:""}</div>${w[2]?`<em>${w[2]}</em>`:""}</button>`).join("");
+function upd(){const list=[...on].sort((a,b)=>a-b).map(i=>"— "+D.works[i][0].toLowerCase());
+ const t=list.length?"Здравствуйте! Хочу записать машину:\n"+list.join("\n")+"\nМарка и модель: ":"Отметьте хотя бы одну работу выше.";
+ $("msg").textContent=t;$("send").setAttribute("aria-disabled",!list.length);
+ $("send").href="https://wa.me/"+D.wa+"?text="+encodeURIComponent(t)}
+document.querySelectorAll(".wk").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;on.has(i)?on.delete(i):on.add(i);b.setAttribute("aria-pressed",on.has(i));upd()});upd();
+/* лампа: за пальцем/мышью; без касания — сама гуляет по салону */
+const box=$("box");let touched=false,t0=performance.now();
+function lamp(x,y){box.style.setProperty("--x",x+"px");box.style.setProperty("--y",y+"px");$("h1").style.setProperty("--s",Math.round(x/box.clientWidth*90)+"%")}
+function mv(e){const r=box.getBoundingClientRect(),p=e.touches?e.touches[0]:e;touched=true;$("hint").style.opacity=0;lamp(p.clientX-r.left,p.clientY-r.top)}
+box.addEventListener("pointermove",mv);box.addEventListener("touchmove",mv,{passive:true});box.addEventListener("touchstart",mv,{passive:true});
+const still=matchMedia("(prefers-reduced-motion:reduce)").matches;
+(function idle(t){if(!touched&&!still){const k=(t-t0)/1000,w=box.clientWidth,h=box.clientHeight;lamp(w*(.5+.32*Math.sin(k*.7)),h*(.38+.14*Math.sin(k*1.1)))}requestAnimationFrame(idle)})(t0);
+if(still)box.style.setProperty("--r","70vmax");
+</script><div style="position:fixed;left:10px;bottom:10px;z-index:2147483647;background:rgba(0,0,0,.72);color:#fff;font:12px/1.2 system-ui,sans-serif;padding:6px 10px;border-radius:999px;pointer-events:none">Демо-версия · не официальный сайт</div>
+</body></html>

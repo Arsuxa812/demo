@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta name="robots" content="noindex,nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Master Omer — барбершоп на Ясной, 6, Екатеринбург</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script>
+/* ===== ВСЕ ДАННЫЕ — менять только здесь ===== */
+const DATA = {
+  name: "Master Omer", addr: "Ясная, 6", near: "200 м от ТЦ ФанФан",
+  phone: "+7 962 324-30-00", tel: "+79623243000", firm: "70000001035245493",
+  open: 10, close: 22,
+  photo: "https://i6.photo.2gis.com/main/branch/9/70000001035245493/common",
+  chairs: 3,               // сколько кресел (уточнить)
+  slot: 40,                // минут на стрижку
+  price: [                 // [услуга, цена или "?", пояснение]
+    ["Мужская стрижка", "599", "брови, нос и уши — уже в цене"],
+    ["Детская стрижка", "?", ""],
+    ["Борода", "?", ""],
+    ["Стрижка + борода", "?", ""]
+  ],
+  quotes: [
+    "Хожу к ним около двух лет. Парни всегда приветливые, стригут хорошо.",
+    "Мастер быстро стрижёт, а стрижка получается идеальной. Плюс уход за лицом, который уже входит в стоимость.",
+    "Очень занято. Надо записываться заранее."
+  ]
+};
+</script>
+<style>
+:root{--ink:#111214;--paper:#efece4;--line:#d6d1c4;--red:#c8372d;--mute:#6f6a60}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:16px/1.5 "IBM Plex Sans",Arial,sans-serif;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+a{color:inherit}img{display:block;max-width:100%}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.w{max-width:620px;margin:0 auto;padding:0 18px}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:14px 18px;max-width:620px;margin:0 auto;border-bottom:2px solid var(--ink)}
+.logo{font:40px/1 "Bebas Neue",sans-serif;letter-spacing:1px;text-decoration:none}
+.top a.t{font:500 14px "IBM Plex Mono",monospace;text-decoration:none}
+.board{background:var(--ink);color:#fff;margin:18px auto 0;max-width:620px;padding:22px 18px 20px}
+.lbl{font:500 13px "IBM Plex Mono",monospace;color:#a9a59b}
+.big{font:104px/0.9 "Bebas Neue",sans-serif;letter-spacing:2px;margin-top:6px}
+.big span{color:var(--red)}
+.big .fl{display:inline-block;transform-origin:50% 55%;background:linear-gradient(#0000 49%,rgba(0,0,0,.35) 50%,#0000 52%)}.big .fl.f{animation:fl .09s linear}@keyframes fl{0%{transform:rotateX(0)}50%{transform:rotateX(-90deg)}100%{transform:rotateX(0)}}
+
+.sub{margin-top:8px;color:#d9d5cb}
+.chairs{display:flex;gap:8px;margin-top:16px}
+.chair{flex:1;border:1.5px solid #3a3b40;padding:10px 8px;font:500 12px "IBM Plex Mono",monospace;color:#a9a59b}
+.chair b{display:block;font:24px/1 "Bebas Neue",sans-serif;letter-spacing:1px;margin-top:4px;color:#fff}
+.chair.free{border-color:var(--red)}
+.go{display:block;width:100%;margin-top:16px;border:0;background:var(--red);color:#fff;font:600 18px "IBM Plex Sans";padding:18px}
+.alt{display:block;width:100%;margin-top:8px;border:1.5px solid #3a3b40;background:none;color:#fff;padding:14px}
+.times{display:none;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}.times.on{display:grid}
+.times button{background:none;border:1.5px solid #3a3b40;color:#fff;padding:10px 0;font:500 15px "IBM Plex Mono",monospace}
+.times button:disabled{opacity:.25;text-decoration:line-through}
+.sheet{display:none;margin-top:14px;border-top:1px solid #3a3b40;padding-top:6px}.sheet.on{display:block}
+.sheet input{width:100%;font:inherit;background:#1d1e22;border:1.5px solid #3a3b40;color:#fff;padding:13px;margin-top:8px}
+.ok{display:none;margin-top:14px;border:1.5px solid var(--red);padding:14px;font:500 14px "IBM Plex Mono",monospace;white-space:pre-line}
+.law{font-size:12px;color:#8d897f;margin-top:8px}
+.sign{display:grid;grid-template-columns:1fr auto;align-items:end;border-bottom:2px solid var(--ink);padding:26px 0 10px;margin-top:34px}
+.sign h2{font:46px/0.92 "Bebas Neue",sans-serif;letter-spacing:1px}
+.sign .p{font:clamp(72px,24vw,96px)/0.8 "Bebas Neue",sans-serif;white-space:nowrap}.sign .p small{font-size:36px}
+.note{color:var(--mute);font-size:14px;margin-top:8px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}
+.row b{font:24px/1 "Bebas Neue",sans-serif;letter-spacing:1px;white-space:nowrap}
+.ph{margin-top:34px}.ph img{width:100%;aspect-ratio:1/1;object-fit:cover}
+h3{font:36px/1 "Bebas Neue",sans-serif;letter-spacing:1px;margin:34px 0 4px}
+.q{padding:14px 0;border-bottom:1px solid var(--line)}.q p{font-size:18px}.q span{font:500 12px "IBM Plex Mono",monospace;color:var(--mute)}
+.where{margin-top:8px;font-size:18px}
+footer{max-width:620px;margin:30px auto 0;padding:0 18px;font-size:12px;color:var(--mute)}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--ink)}
+.bar a{flex:1;text-align:center;color:#fff;text-decoration:none;padding:16px 10px calc(16px + env(safe-area-inset-bottom));font-weight:600}
+.bar a.r{background:var(--red)}
+</style></head><body>
+<header class="top">
+<meta name="robots" content="noindex,nofollow"><a class="logo" href="#" id="logo"></a><a class="t" id="tel"></a></header>
+<section class="board" id="book" aria-live="polite">
+  <p class="lbl" id="lbl">БЛИЖАЙШЕЕ СВОБОДНОЕ КРЕСЛО</p>
+  <p class="big" id="next"></p>
+  <p class="sub" id="nsub"></p>
+  <div class="chairs" id="chairs"></div>
+  <button class="go" id="go"></button>
+  <button class="alt" id="alt">Выбрать другое время</button>
+  <div class="times" id="times"></div>
+  <div class="sheet" id="sheet">
+    <input id="nm" placeholder="Имя" autocomplete="given-name">
+    <input id="ph" placeholder="Телефон" inputmode="tel" autocomplete="tel">
+    <button class="go" id="send">Занять кресло</button>
+    <p class="law">Нажимая кнопку, вы соглашаетесь на обработку персональных данных для записи.</p>
+  </div>
+  <div class="ok" id="ok"></div>
+</section>
+<div class="w">
+  <div class="sign"><h2>Мужская<br>стрижка</h2><p class="p" id="pmain"></p></div>
+  <p class="note" id="pnote"></p>
+  <div id="rows"></div>
+</div>
+<div class="w ph"><img id="photo" alt="Стрижка в Master Omer"></div>
+<div class="w">
+  <h3>Говорят клиенты</h3><div id="qs"></div>
+  <p class="note" style="margin-top:10px"><a id="allr">Все отзывы в 2ГИС</a></p>
+  <h3>Где</h3><p class="where" id="where"></p>
+</div>
+<footer>Демо-версия сайта для барбершопа Master Omer. Данные из открытой карточки 2ГИС.</footer>
+<nav class="bar"><a id="call">Позвонить</a><a class="r" href="#book">Записаться</a></nav>
+<script>
+const $=i=>document.getElementById(i),D=DATA;
+$("logo").textContent=D.name.toUpperCase();$("tel").textContent=D.phone;$("tel").href=$("call").href="tel:"+D.tel;
+$("photo").onerror=()=>document.querySelector(".ph").remove();$("photo").src=D.photo;
+$("pmain").innerHTML=D.price[0][1]+"<small> ₽</small>";$("pnote").textContent=D.price[0][2];
+$("rows").innerHTML=D.price.slice(1).map(r=>`<div class="row"><span>${r[0]}</span><b>${r[1]==="?"?"СПРОСИТЕ":r[1]+" ₽"}</b></div>`).join("");
+$("qs").innerHTML=D.quotes.map(q=>`<div class="q"><p>${q}</p><span>отзыв в 2ГИС</span></div>`).join("");
+$("allr").href="https://2gis.ru/ekaterinburg/firm/"+D.firm+"/tab/reviews";
+$("where").innerHTML=`${D.addr}, ${D.near}<br>Каждый день ${D.open}:00–${D.close}:00<br><a href="https://2gis.ru/ekaterinburg/firm/${D.firm}">Маршрут в 2ГИС</a>`;
+// модель загрузки кресел для демо (на настоящем сайте — из журнала записи)
+const now=new Date(),fmt=m=>String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0");
+const busy=m=>((m+now.getDate()*7)*2654435761%97)/97<0.55;
+const slots=[];for(let m=D.open*60;m<=D.close*60-D.slot;m+=D.slot)slots.push(m);
+const nowM=now.getHours()*60+now.getMinutes();
+let day="сегодня",free=slots.filter(m=>m>nowM+15&&!busy(m));
+if(!free.length){day="завтра";free=slots.filter(m=>!busy(m))}
+let pick=free[0];
+function render(){
+ $("next").innerHTML=fmt(pick).replace(":","<span>:</span>");
+ $("nsub").textContent=day==="сегодня"?"сегодня, через "+String(Math.max(0.3,Math.round((pick-nowM)/6)/10)).replace(".",",")+" ч":"завтра, первое свободное";
+ $("go").textContent="Записаться на "+fmt(pick);
+ $("chairs").innerHTML=Array.from({length:D.chairs},(_,i)=>i===0?`<div class="chair free">КРЕСЛО 1<b>${fmt(pick)}</b></div>`:`<div class="chair">КРЕСЛО ${i+1}<b>ЗАНЯТО</b></div>`).join("")}
+render();
+$("alt").onclick=()=>{const t=$("times");t.classList.toggle("on");
+ t.innerHTML=slots.filter(m=>day!=="сегодня"||m>nowM).map(m=>`<button type="button" data-m="${m}" ${busy(m)?"disabled":""}>${fmt(m)}</button>`).join("");
+ t.querySelectorAll("button").forEach(b=>b.onclick=()=>{pick=+b.dataset.m;render();t.classList.remove("on");$("sheet").classList.add("on")})};
+$("go").onclick=()=>$("sheet").classList.add("on");
+$("send").onclick=()=>{if(!$("nm").value.trim()||$("ph").value.replace(/\D/g,"").length<10){$("ph").focus();return}
+ $("sheet").classList.remove("on");$("go").style.display=$("alt").style.display="none";$("lbl").textContent="ВЫ ЗАПИСАНЫ";
+ $("ok").style.display="block";$("ok").textContent="КРЕСЛО ЗА ВАМИ\n"+day+" в "+fmt(pick)+", "+$("nm").value.trim()+"\n\nТак запись приходит мастеру в Telegram."};
+
+/* перекидное табло: цифры перещёлкиваются до нужного времени */
+(function(){const still=matchMedia("(prefers-reduced-motion:reduce)").matches,el=$("next");let last="";
+ function flip(){const v=fmt(pick);if(v===last||still){last=v;return}last=v;
+  el.innerHTML=[...v].map(c=>c===":"?"<span>:</span>":`<i class="fl" data-v="${c}" style="font-style:normal">${c}</i>`).join("");
+  el.querySelectorAll(".fl").forEach((d,i)=>{let n=6+i*3;const tick=()=>{d.classList.remove("f");void d.offsetWidth;d.classList.add("f");
+   d.textContent=n>0?Math.floor(Math.random()*10):d.dataset.v;if(n-->0)setTimeout(tick,70)};setTimeout(tick,i*60)})}
+ const r0=render;render=function(){r0();flip()};document.fonts.ready.then(()=>setTimeout(flip,350))})();
+</script><div style="position:fixed;left:10px;bottom:10px;z-index:2147483647;background:rgba(0,0,0,.72);color:#fff;font:12px/1.2 system-ui,sans-serif;padding:6px 10px;border-radius:999px;pointer-events:none">Демо-версия · не официальный сайт</div>
+</body></html>

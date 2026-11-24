@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta name="robots" content="noindex,nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Шиномонтаж на Шаумяна, 43а — до полуночи</title>
+<meta name="description" content="Шиномонтаж, хранение шин, правка и сварка дисков, выездной шиномонтаж. Шаумяна, 43а, Екатеринбург. Каждый день 9:00–24:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
+/* ===== ВСЕ ДАННЫЕ — менять только здесь ===== */
+const DATA = {
+  tel: "+79530480036", phone: "+7 953 048-00-36", firm: "70000001057198649",
+  addr: "Шаумяна, 43а", open: 9, close: 24, rating: "4,8", reviews: 90,
+  // ПРИМЕР цен за комплект из 4 колёс — заменить на настоящие: радиус: [легковой, кроссовер]
+  price: {13:[1600,0],14:[1800,0],15:[2000,2400],16:[2200,2600],17:[2600,3000],18:[3000,3400],19:[3400,3800],20:[3800,4200]},
+  extra: ["Хранение шин","Правка и прокатка дисков","Сварка дисков","Ремонт порезов","Выездной шиномонтаж","Мотошиномонтаж"],
+  quotes: [["Самый лучший шиномонтаж, работают оперативно, много лет обращаемся сюда."],["Приезжаешь в любое время, и тебе всегда помогут."],["Переобули быстро и оперативно."]]
+};
+</script>
+<style>
+:root{--asph:#2c2e31;--asph2:#36393d;--fg:#f1f1ee;--mute:#a3a7ad;--yel:#ffd21f;--line:#474b51}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--asph)}
+body{color:var(--fg);font:16px/1.55 "Onest",Arial,sans-serif;padding-bottom:calc(84px + env(safe-area-inset-bottom));overflow-x:hidden}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
+.w{max-width:600px;margin:0 auto;padding:0 18px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;max-width:600px;margin:0 auto}
+.top b{font:20px "Russo One",sans-serif}.top a{text-decoration:none;font-weight:700}
+.now{margin:6px 18px 0;max-width:564px;display:flex;align-items:center;gap:10px;font-weight:500}
+@media(min-width:600px){.now{margin:6px auto 0}}
+.now i{width:10px;height:10px;border-radius:50%;background:var(--yel);box-shadow:0 0 0 0 rgba(255,210,31,.6);animation:p 1.8s infinite}
+@keyframes p{70%{box-shadow:0 0 0 10px rgba(255,210,31,0)}100%{box-shadow:0 0 0 0 rgba(255,210,31,0)}}
+h1{font:clamp(34px,10vw,56px)/1 "Russo One",sans-serif;margin:16px 0 0}
+/* колесо */
+.wheel{position:relative;margin:22px auto 0;width:min(86vw,380px);aspect-ratio:1;touch-action:none;user-select:none;cursor:grab}
+.wheel svg{width:100%;height:100%;display:block}
+.wheel .r{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;text-align:center}
+.wheel .r b{font:clamp(54px,16vw,84px)/1 "Russo One",sans-serif;color:var(--yel)}
+.wheel .r span{display:block;font-size:13px;color:var(--mute)}
+.steps{display:flex;gap:4px;margin-top:14px}
+.steps button{flex:1;min-width:0;font-size:14px;padding:11px 0;border-radius:10px;background:var(--asph2);font-weight:700}
+.steps button[aria-pressed=true]{background:var(--yel);color:#1d1e20}
+.seg{display:flex;margin-top:18px;background:var(--asph2);border-radius:12px;padding:4px}
+.seg button{flex:1;padding:11px;border-radius:9px;font-weight:500}.seg button[aria-pressed=true]{background:var(--fg);color:var(--asph)}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding:16px 0;border-top:2px dashed var(--yel);border-bottom:2px dashed var(--yel)}
+.total b{font:34px "Russo One",sans-serif}
+.note{color:var(--mute);font-size:14px}
+.call{display:block;margin-top:14px;padding:16px;border-radius:12px;background:var(--yel);color:#1d1e20;text-align:center;font-weight:700;text-decoration:none}
+h2{font:28px/1.1 "Russo One",sans-serif;margin:52px 0 10px}
+.ex li{list-style:none;padding:13px 0;border-bottom:1px solid var(--line)}
+.photo{margin-top:16px;border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:url(img/car.jpg) 50% 60%/cover}
+blockquote{padding:16px 0;border-bottom:1px solid var(--line);font-size:18px}
+.score{display:flex;align-items:baseline;gap:12px}.score b{font:52px/1 "Russo One",sans-serif;color:var(--yel)}
+footer{max-width:600px;margin:46px auto 0;padding:0 18px;font-size:12px;color:var(--mute)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--asph);border-top:1px solid var(--line)}
+.bar a{flex:1;text-align:center;padding:14px;border-radius:12px;font-weight:700;text-decoration:none}
+.bar .m{border:1px solid var(--line)}.bar .c{background:var(--yel);color:#1d1e20;flex:1.5}
+</style></head><body>
+<div class="top"><b>ШИНОМОНТАЖ</b><a id="tt"></a></div>
+<p class="now"><i></i><span id="now"></span></p>
+<div class="w">
+  <h1>Переобуем до полуночи</h1>
+  <p class="note" style="margin-top:8px">Покрутите колесо или выберите радиус, и сразу увидите цену за комплект.</p>
+  <div class="wheel" id="wheel" role="slider" aria-label="Радиус колеса" tabindex="0" aria-valuemin="13" aria-valuemax="20">
+    <svg viewBox="0 0 200 200" aria-hidden="true"><g id="rot">
+      <circle cx="100" cy="100" r="96" fill="#1b1c1e"/>
+      <g id="tread"></g>
+      <circle cx="100" cy="100" r="70" fill="#232527"/>
+      <circle id="disk" cx="100" cy="100" r="54" fill="none" stroke="#8a9097" stroke-width="3"/>
+      <g id="spokes" stroke="#8a9097" stroke-width="7" stroke-linecap="round"></g>
+      <circle cx="100" cy="100" r="34" fill="#232527"/>
+    </g></svg>
+    <div class="r"><div><b id="rv"></b><span>радиус</span></div></div>
+  </div>
+  <div class="steps" id="steps"></div>
+  <div class="seg" id="seg"><button type="button" data-k="0">Легковой</button><button type="button" data-k="1">Кроссовер</button></div>
+  <div class="total"><span>Комплект из 4 колёс</span><b id="sum"></b></div>
+  <p class="note" style="margin-top:8px">Снятие, монтаж, балансировка. Цены — пример, мастерская назовёт свои.</p>
+  <a class="call" id="call2">Позвонить и записаться</a>
+  <h2>Ещё делаем</h2><ul class="ex" id="ex"></ul>
+  <div class="photo" role="img" aria-label="Машина у мастерской"></div>
+  <h2>Отзывы</h2><div class="score"><b id="sc"></b><span class="note" id="sn"></span></div><div id="qs"></div>
+  <p class="note" style="margin-top:12px"><a id="allr">Все отзывы в 2ГИС</a></p>
+  <h2>Где мы</h2><p id="ad"></p><p class="note" id="hr"></p><p style="margin-top:8px"><a id="route">Маршрут в 2ГИС</a></p>
+</div>
+<footer>Демо-версия сайта для шиномонтажной мастерской на Шаумяна, 43а. Данные из открытой карточки 2ГИС.</footer>
+<nav class="bar"><a class="m" id="route2">Маршрут</a><a class="c" id="call">Позвонить</a></nav>
+<script>
+const $=i=>document.getElementById(i),D=DATA,R=Object.keys(D.price).map(Number);let ri=3,kind=0,ang=0;
+["tt","call","call2"].forEach(i=>$(i).href="tel:"+D.tel);$("tt").textContent=D.phone;
+$("route").href=$("route2").href="https://2gis.ru/ekaterinburg/firm/"+D.firm;$("allr").href=$("route").href+"/tab/reviews";
+$("sc").textContent=D.rating;$("sn").textContent="из 5, "+D.reviews+" отзывов в 2ГИС";$("ad").textContent=D.addr;
+$("hr").textContent="Каждый день "+D.open+":00–"+(D.close===24?"00:00":D.close+":00");
+$("ex").innerHTML=D.extra.map(e=>`<li>${e}</li>`).join("");$("qs").innerHTML=D.quotes.map(q=>`<blockquote>«${q[0]}»</blockquote>`).join("");
+let t="";for(let i=0;i<36;i++){const a=i*10;t+=`<rect x="96" y="5" width="8" height="16" rx="2" fill="#2f3134" transform="rotate(${a} 100 100)"/>`}$("tread").innerHTML=t;
+let s="";for(let i=0;i<5;i++)s+=`<line x1="100" y1="66" x2="100" y2="48" transform="rotate(${i*72} 100 100)"/>`;$("spokes").innerHTML=s;
+/* «сейчас открыто» */
+function now(){const d=new Date(),h=d.getHours()+d.getMinutes()/60;let txt;
+ if(h>=D.open&&h<D.close){const left=D.close-h,hh=Math.floor(left),mm=Math.round((left-hh)*60);txt="Сейчас открыто, до закрытия "+(hh?hh+" ч ":"")+mm+" мин"}
+ else txt="Сейчас закрыто, откроемся в "+D.open+":00";$("now").textContent=txt}now();setInterval(now,30000);
+$("steps").innerHTML=R.map((r,i)=>`<button type="button" data-i="${i}">R${r}</button>`).join("");
+function render(){const r=R[ri];let p=D.price[r][kind];if(!p){kind=0;p=D.price[r][0]}
+ $("rv").textContent="R"+r;$("wheel").setAttribute("aria-valuenow",r);
+ $("sum").textContent=p.toLocaleString("ru-RU")+" ₽";
+ document.querySelectorAll("#steps button").forEach((b,i)=>b.setAttribute("aria-pressed",i===ri));
+ document.querySelectorAll("#seg button").forEach(b=>{b.setAttribute("aria-pressed",+b.dataset.k===kind);b.disabled=+b.dataset.k===1&&!D.price[r][1];b.style.opacity=b.disabled?.4:1});
+ $("disk").setAttribute("r",44+(r-13)*2.2)}
+function set(i){ri=Math.max(0,Math.min(R.length-1,i));render()}
+document.querySelectorAll("#steps button").forEach(b=>b.onclick=()=>{ang+=(+b.dataset.i-ri)*45;spin();set(+b.dataset.i)});
+document.querySelectorAll("#seg button").forEach(b=>b.onclick=()=>{kind=+b.dataset.k;render()});
+/* вращение колеса пальцем: каждые 45° — следующий радиус */
+const W=$("wheel"),rot=$("rot");let drag=null;
+function spin(){rot.setAttribute("transform",`rotate(${ang} 100 100)`)}
+function a(e){const b=W.getBoundingClientRect();return Math.atan2(e.clientY-b.top-b.height/2,e.clientX-b.left-b.width/2)*180/Math.PI}
+W.addEventListener("pointerdown",e=>{drag={a:a(e),ang,ri};W.setPointerCapture(e.pointerId)});
+W.addEventListener("pointermove",e=>{if(!drag)return;let d=a(e)-drag.a;if(d>180)d-=360;if(d<-180)d+=360;ang=drag.ang+d;spin();const n=drag.ri+Math.round(d/45);if(n!==ri&&n>=0&&n<R.length){set(n);navigator.vibrate&&navigator.vibrate(8)}});
+W.addEventListener("pointerup",()=>{drag=null;ang=Math.round(ang/45)*45;spin()});
+W.addEventListener("keydown",e=>{if(e.key==="ArrowRight"||e.key==="ArrowUp"){ang+=45;spin();set(ri+1)}if(e.key==="ArrowLeft"||e.key==="ArrowDown"){ang-=45;spin();set(ri-1)}});
+render();
+</script><div style="position:fixed;left:10px;bottom:10px;z-index:2147483647;background:rgba(0,0,0,.72);color:#fff;font:12px/1.2 system-ui,sans-serif;padding:6px 10px;border-radius:999px;pointer-events:none">Демо-версия · не официальный сайт</div>
+</body></html>

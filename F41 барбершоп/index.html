@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta name="robots" content="noindex,nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>F41 — барбершоп на Фрунзе, 41, Екатеринбург</title>
+<meta name="description" content="Мужские стрижки и борода у Автовокзала. Стрижка от 1000 ₽. 4,9 в 2ГИС. Каждый день 10–22. Онлайн-запись.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Golos+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
+/* ===== ВСЕ ДАННЫЕ — менять только здесь ===== */
+const DATA = {
+  book: "https://n799380.yclients.ru", tel: "+79826949191", phone: "+7 982 694-91-91",
+  firm: "70000001118796586", rating: "4,9", reviews: 300,
+  // [имя, кому (дат. падеж), фото, уровень: "top" | "senior", отзывов]
+  team: [["Арслан","Арслану","img/arslan.png","top",351],["Абдула","Абдуле","img/abdula.png","top",121],
+         ["Тельман","Тельману","img/telman.png","senior",113],["Уссама","Уссаме","img/ussama.jpeg","senior",37]],
+  // [услуга, пояснение, цена старший, цена топ]
+  price: [["Стрижка любой сложности","мытьё, стрижка, укладка",1000,1500],["Бритьё головы","",1000,1000],
+          ["Моделирование бороды","форма под лицо, опасная бритва",1000,1500],["Бритьё бороды","",1000,1500],
+          ["Окраска бороды","",1000,1500],["Стрижка и борода","всё вместе",2000,3000]],
+  quotes: [["Какой раз прихожу к ребятам, и всегда встречают как родного, чай, кофе всегда предлагают. Арслан действительно мастер своего дела.","Артём"],
+           ["Встретили как дома! Уссама — профессионал, блестяще всё сделал.","Максим"]]
+};
+</script>
+<style>
+:root{--steel:#e6e9ec;--ink:#131518;--red:#d3262f;--blue:#1f3f93;--mute:#5d6670;--line:#c9cfd5;--white:#fbfcfd}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--steel)}
+body{color:var(--ink);font:16px/1.55 "Golos Text",Arial,sans-serif;padding-bottom:calc(84px + env(safe-area-inset-bottom));overflow-x:hidden}
+a{color:inherit}img{display:block;max-width:100%}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.w{max-width:640px;margin:0 auto;padding:0 18px}
+.hero{height:200vh;position:relative}
+.pin{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center}
+.ph{position:absolute;inset:0;background:url(img/hero.jpg) 50% 50%/cover}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,21,24,.2),rgba(19,21,24,.65))}
+.num{position:relative;font:800 min(62vw,360px)/.8 "Unbounded",sans-serif;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px var(--white);z-index:2}
+.cap{position:absolute;left:18px;right:18px;bottom:calc(110px + env(safe-area-inset-bottom));z-index:2;color:var(--white)}
+.cap h1{font:500 22px/1.25 "Unbounded",sans-serif;max-width:16ch}
+.cap p{margin-top:8px;opacity:.85;max-width:34ch}
+.logo{position:absolute;top:16px;left:18px;width:46px;z-index:3;border-radius:50%}
+.top-tel{position:absolute;top:26px;right:18px;z-index:3;color:var(--white);text-decoration:none;font-weight:700}
+.pole{height:22px;background:repeating-linear-gradient(-45deg,var(--red) 0 18px,var(--white) 18px 36px,var(--blue) 36px 54px,var(--white) 54px 72px)}
+h2{font:800 30px/1.1 "Unbounded",sans-serif;letter-spacing:-.02em;margin:54px 0 8px}
+.note{color:var(--mute);font-size:14px}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+.m{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 2px;border-radius:14px;border:2px solid transparent;transition:border-color .2s,background .2s}
+.m img{width:64px;height:64px;border-radius:50%;object-fit:cover;filter:grayscale(1);transition:filter .3s}
+.m b{font-size:14px}.m span{font-size:12px;color:var(--mute);line-height:1.2;text-align:center}
+.m[aria-pressed=true]{border-color:var(--ink);background:var(--white)}.m[aria-pressed=true] img{filter:none}
+.lvl{margin-top:14px;padding:12px 14px;background:var(--ink);color:var(--white);border-radius:12px;font-size:15px}
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row b{font-weight:500}.row small{grid-column:1;color:var(--mute);font-size:13px}
+.row i{grid-row:1;grid-column:2;font:800 22px "Unbounded",sans-serif;font-style:normal;display:inline-block}
+.row.big i{color:var(--red)}
+.gift{margin-top:18px;padding:14px;border:2px dashed var(--ink);border-radius:12px}
+.cta{display:block;text-align:center;margin-top:16px;padding:16px;border-radius:14px;background:var(--red);color:var(--white);font-weight:700;text-decoration:none}
+.rate{display:flex;align-items:baseline;gap:12px;margin-top:8px}.rate b{font:800 64px/1 "Unbounded",sans-serif}
+blockquote{margin-top:18px;font-size:19px;line-height:1.45}blockquote cite{display:block;margin-top:6px;font-style:normal;color:var(--mute);font-size:14px}
+.where p{margin-top:10px}
+footer{max-width:640px;margin:50px auto 0;padding:0 18px;font-size:12px;color:var(--mute)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--steel);border-top:1px solid var(--line)}
+.bar a{flex:1;text-align:center;padding:14px;border-radius:12px;font-weight:700;text-decoration:none}
+.bar .c{border:2px solid var(--ink)}.bar .r{background:var(--ink);color:var(--white);flex:1.6}
+@media (prefers-reduced-motion:reduce){.hero{height:auto}.pin{position:relative}}
+</style></head><body>
+<section class="hero"><div class="pin">
+  <div class="ph" id="ph"></div>
+  <img class="logo" src="img/logo.png" alt="F41"><a class="top-tel" id="tt"></a>
+  <div class="num" id="num">41</div>
+  <div class="cap" id="cap"><h1>Барбершоп на Фрунзе, 41</h1><p>У Автовокзала. Каждый день 10:00–22:00. Чай или кофе, пока ждёте.</p></div>
+</div></section>
+<div class="pole" id="pole"></div>
+<div class="w">
+  <h2>К кому записаться</h2><p class="note">Выберите мастера, и цены ниже пересчитаются</p>
+  <div class="team" id="team"></div>
+  <p class="lvl" id="lvl"></p>
+  <h2 id="price">Цены</h2>
+  <div id="list"></div>
+  <a class="cta" id="cta"></a>
+  <p class="gift"><b>Воск для укладки в подарок</b> за отзыв о стрижке в 2ГИС или на Яндексе. Покажите отзыв мастеру.</p>
+  <h2>Что пишут</h2>
+  <div class="rate"><b id="rt"></b><span class="note" id="rn"></span></div>
+  <div id="qs"></div>
+  <p class="note" style="margin-top:14px"><a id="allr">Все отзывы в 2ГИС</a></p>
+  <h2>Где мы</h2>
+  <div class="where"><p>Фрунзе, 41, район Автовокзала<br><a id="route">Построить маршрут в 2ГИС</a></p><p>Каждый день с 10:00 до 22:00</p></div>
+</div>
+<footer>Демо-версия сайта для барбершопа F41. Данные из открытых карточек 2ГИС и записи YCLIENTS.</footer>
+<nav class="bar"><a class="c" id="call">Позвонить</a><a class="r" id="bk">Записаться онлайн</a></nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+const $=i=>document.getElementById(i),D=DATA;let sel=0;
+$("tt").href=$("call").href="tel:"+D.tel;$("tt").textContent=D.phone;$("bk").href=$("cta").href=D.book;
+$("rt").textContent=D.rating;$("rn").textContent="из 5 по "+D.reviews+" отзывам в 2ГИС";
+$("allr").href="https://2gis.ru/ekaterinburg/firm/"+D.firm+"/tab/reviews";$("route").href="https://2gis.ru/ekaterinburg/firm/"+D.firm;
+$("qs").innerHTML=D.quotes.map(q=>`<blockquote>«${q[0]}»<cite>${q[1]}, 2ГИС</cite></blockquote>`).join("");
+const LV={top:"топ-мастер",senior:"старший мастер"};
+$("team").innerHTML=D.team.map((m,i)=>`<button class="m" type="button"><img src="${m[2]}" alt=""><b>${m[0]}</b><span>${LV[m[3]]}</span></button>`).join("");
+function render(anim){const m=D.team[sel],top=m[3]==="top";
+ document.querySelectorAll(".m").forEach((b,i)=>b.setAttribute("aria-pressed",i===sel));
+ $("lvl").textContent=m[0]+": "+LV[m[3]]+", "+m[4]+" отзывов. "+(top?"Ниже цены топ-мастера.":"Ниже цены старшего мастера.");
+ $("list").innerHTML=D.price.map((p,i)=>`<div class="row${i===D.price.length-1?" big":""}"><b>${p[0]}</b><i>${top?p[3]:p[2]}</i>${p[1]?`<small>${p[1]}</small>`:""}</div>`).join("");
+ $("cta").textContent="Записаться к "+m[1];
+ if(anim&&window.gsap)gsap.from("#list i",{rotationX:-90,opacity:0,duration:.35,stagger:.04,ease:"power2.out"})}
+document.querySelectorAll(".m").forEach((b,i)=>b.onclick=()=>{sel=i;render(true)});render(false);
+if(window.gsap&&!matchMedia("(prefers-reduced-motion:reduce)").matches){gsap.registerPlugin(ScrollTrigger);
+ gsap.timeline({scrollTrigger:{trigger:".hero",start:"top top",end:"bottom bottom",scrub:.6}})
+  .to("#num",{scale:.42,color:"#fbfcfd",ease:"none"},0).to("#ph",{scale:1.25,filter:"grayscale(1)",ease:"none"},0).to("#cap",{y:-40,ease:"none"},0);
+ gsap.to("#pole",{backgroundPositionX:"+=408px",ease:"none",scrollTrigger:{trigger:"#pole",start:"top bottom",end:"+=1400",scrub:true}});}
+</script><div style="position:fixed;left:10px;bottom:10px;z-index:2147483647;background:rgba(0,0,0,.72);color:#fff;font:12px/1.2 system-ui,sans-serif;padding:6px 10px;border-radius:999px;pointer-events:none">Демо-версия · не официальный сайт</div>
+</body></html>

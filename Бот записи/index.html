@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Бот записи — демо</title>
+<style>
+:root{--wall:#c9dcb5;--in:#fff;--out:#e1ffc7;--ink:#111;--mute:#7b8590;--link:#3390ec;--tick:#4fae4e}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--wall);font:16px/1.4 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);display:flex;flex-direction:column}
+header{background:#fff;display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid #dfe3e6;position:sticky;top:0;z-index:2}
+.ava{width:42px;height:42px;border-radius:50%;background:#1f1f1f;color:#fff;display:grid;place-items:center;font-weight:700}
+header b{display:block;font-size:17px}
+header span{font-size:13px;color:var(--mute)}
+header>div:nth-child(2){min-width:0}
+header b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ava{flex-shrink:0}
+#mode{margin-left:auto;flex-shrink:0;font-size:13px;color:var(--link);background:none;border:1px solid var(--link);border-radius:14px;padding:5px 10px;cursor:pointer}
+main{flex:1;overflow-y:auto;padding:12px 10px 8px;background:
+ radial-gradient(circle at 20% 30%,#d6e6c4 0 2px,transparent 3px) 0 0/46px 46px,var(--wall)}
+.m{max-width:82%;padding:8px 12px 6px;border-radius:16px;margin:6px 0;box-shadow:0 1px 1px rgba(0,0,0,.12);white-space:pre-line;animation:in .18s ease-out}
+.m.b{background:var(--in);border-bottom-left-radius:6px}
+.m.u{background:var(--out);margin-left:auto;border-bottom-right-radius:6px}
+.m time{display:block;text-align:right;font-size:11px;color:var(--mute);margin-top:2px}
+.m.u time{color:#5fa85a}
+.kb{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:4px 0 10px;max-width:82%}
+.kb.one{grid-template-columns:1fr}
+.kb button{background:rgba(255,255,255,.75);border:0;border-radius:10px;padding:10px 6px;font:500 15px inherit;color:#1c6b3a;cursor:pointer}
+.kb button:disabled{opacity:.45;cursor:default}
+.note{align-self:center;background:rgba(0,0,0,.22);color:#fff;font-size:13px;border-radius:12px;padding:3px 10px;margin:8px auto;width:max-content;max-width:90%}
+.admin .m.b{background:#fff8e1}
+@keyframes in{from{transform:translateY(6px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.m{animation:none}}
+</style>
+</head>
+<body>
+<header>
+<meta name="robots" content="noindex,nofollow">
+  <div class="ava" id="ava">F</div>
+  <div><b id="nm">Запись в барбершоп</b><span id="st">бот</span></div>
+  <button id="mode" type="button">Что видит мастер</button>
+</header>
+<main id="chat" aria-live="polite"></main>
+<script>
+// Поменять под точку: название, услуги, мастера.
+const P={name:"F41 Barbershop",short:"F",addr:"Фрунзе, 41",
+ services:[["Стрижка",1000],["Стрижка + борода",2000],["Борода",1000],["Бритьё головы",1000]],
+ masters:["Арслан","Абдула","Тельман","Любой"]};
+const chat=document.getElementById('chat');
+document.getElementById('ava').textContent=P.short;
+const now=()=>new Date().toTimeString().slice(0,5);
+function msg(t,who){const d=document.createElement('div');d.className='m '+who;d.textContent=t;const tm=document.createElement('time');tm.textContent=now()+(who=='u'?' ✓✓':'');d.append(tm);chat.append(d);chat.scrollTop=1e9;return d}
+function note(t){const d=document.createElement('div');d.className='note';d.textContent=t;chat.append(d);chat.scrollTop=1e9}
+function kb(opts,cb,one){const k=document.createElement('div');k.className='kb'+(one?' one':'');opts.forEach(o=>{const b=document.createElement('button');b.type='button';b.textContent=o;b.onclick=()=>{k.querySelectorAll('button').forEach(x=>x.disabled=true);msg(o,'u');setTimeout(()=>cb(o),450)};k.append(b)});chat.append(k);chat.scrollTop=1e9}
+function days(){const r=[],w=['вс','пн','вт','ср','чт','пт','сб'];for(let i=0;i<4;i++){const d=new Date(Date.now()+i*864e5);r.push((i==0?'Сегодня':i==1?'Завтра':w[d.getDay()]+' '+d.getDate()+'.'+String(d.getMonth()+1).padStart(2,'0')))}return r}
+let S={};
+function start(){chat.innerHTML='';S={};note('Клиент нажал «Записаться» в 2ГИС или на сайте');
+ msg('Здравствуйте! Это запись в '+P.name+'.\nВыберите услугу:','b');
+ kb(P.services.map(s=>s[0]+' — '+s[1]+' ₽'),o=>{S.s=o;msg('К какому мастеру?','b');
+  kb(P.masters,o=>{S.m=o;msg('Какой день удобен?','b');
+   kb(days(),o=>{S.d=o;msg('Свободное время:','b');
+    kb(['11:00','12:30','15:00','17:30','19:00','20:30'],o=>{S.t=o;msg('Оставьте номер, чтобы мастер мог связаться:','b');
+     kb(['📱 Отправить мой номер'],o=>{msg('Готово, вы записаны!\n\n'+S.s+'\nМастер: '+S.m+'\n'+S.d+', '+S.t+'\n'+P.addr+'\n\nНапомню за 2 часа. Если планы поменяются — нажмите «Перенести».','b');
+      kb(['Перенести','Отменить запись'],()=>{msg('Хорошо, напишите удобное время — мастер подтвердит.','b')});
+      setTimeout(()=>note('За 2 часа до визита'),900);
+      setTimeout(()=>msg('Напоминаем: сегодня в '+S.t+' вы записаны в '+P.name+'. Ждём вас!','b'),1600);
+     },true)})})})})}
+let admin=false;
+document.getElementById('mode').onclick=()=>{admin=!admin;document.body.classList.toggle('admin',admin);
+ document.getElementById('mode').textContent=admin?'Что видит клиент':'Что видит мастер';
+ document.getElementById('nm').textContent=admin?'Заявки '+P.name:'Запись в барбершоп';
+ if(admin){chat.innerHTML='';note('Сюда приходят заявки владельцу и мастерам');
+  msg('Новая запись\n'+(S.s||'Стрижка + борода — 2000 ₽')+'\nМастер: '+(S.m||'Арслан')+'\n'+(S.d||'Завтра')+', '+(S.t||'19:00')+'\nКлиент: Дмитрий, +7 912 ***-**-41','b');
+  kb(['Подтвердить','Позвонить клиенту'],()=>msg('Клиенту отправлено: «Запись подтверждена»','b'));
+  setTimeout(()=>msg('Каждый вечер бот присылает сводку: сколько записей, отмен и переносов за день (здесь будут ваши цифры)','b'),700);
+ } else start()};
+start();
+</script>
+<div style="position:fixed;left:10px;bottom:10px;z-index:2147483647;background:rgba(0,0,0,.72);color:#fff;font:12px/1.2 system-ui,sans-serif;padding:6px 10px;border-radius:999px;pointer-events:none">Демо-версия · не официальный сайт</div>
+</body>
+</html>

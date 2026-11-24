@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta name="robots" content="noindex,nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PRIMAVERA — салон красоты</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+/* ===== ВСЕ ДАННЫЕ САЙТА — менять только здесь ===== */
+const DATA = {
+ "name": "PRIMAVERA",
+ "kind": "салон красоты",
+ "addr": "Академика Бардина, 33",
+ "district": "Юго-Запад",
+ "hours": "Ежедневно, по записи",
+ "phone": "+7 343 305-50-02",
+ "tel": "+73433055002",
+ "rating": "5,0",
+ "reviews": 267,
+ "firm": "70000001006307653",
+ "photo": "https://i9.photo.2gis.com/main/branch/9/70000001006307653/common",
+ "title": "Салон, в который возвращаются годами",
+ "lead": "Стрижки, окрашивание Davines и Matrix, маникюр и массаж на Бардина. Выберите услугу и время, администратор подтвердит запись.",
+ "services": [
+  [
+   "Женская стрижка",
+   "1 100–2 900 ₽",
+   "мастер, топ-мастер, горячие ножницы"
+  ],
+  [
+   "Мужская стрижка",
+   "800–1 900 ₽",
+   "от спортивной до удлинённой"
+  ],
+  [
+   "Окрашивание Davines / Matrix",
+   "3 000–20 000 ₽",
+   "мелирование, растяжка цвета"
+  ],
+  [
+   "Уходы для волос",
+   "900–10 000 ₽",
+   ""
+  ],
+  [
+   "Химзавивка / биозавивка",
+   "5 000–10 000 ₽",
+   ""
+  ],
+  [
+   "Маникюр",
+   "1 000–2 900 ₽",
+   "с покрытием"
+  ],
+  [
+   "Массаж по телу",
+   "1 800–3 900 ₽",
+   ""
+  ]
+ ],
+ "masters": [],
+ "slots_from": 10,
+ "slots_to": 20,
+ "quotes": [
+  "Больше двух лет посещаю салон, остаюсь всегда довольна. Администраторы приветливо встречают, предлагают чай и кофе.",
+  "Мастер маникюра в первую очередь думает о здоровье клиента. Покрытие ни разу не скалывалось.",
+  "Волосы длинные и очень густые, но с окрашиванием справились отлично, качество волос не пострадало."
+ ],
+ "extra": [
+  "Чай и кофе для гостей",
+  "Косметология",
+  "Оформление бровей",
+  "Педикюр"
+ ],
+ "links": []
+};
+</script>
+<style>
+:root{--bg:#f7f3ee;--fg:#26221f;--ac:#5f7a54;--mu:#7b746c;--card:#ffffff;--rule:#e7dfd5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font:17px/1.55 "Golos Text",Arial,sans-serif;padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+a{color:inherit}img{display:block;max-width:100%}button{font:inherit;color:inherit}
+.w{max-width:640px;margin:0 auto;padding:0 20px}:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:640px;margin:0 auto}
+.brand{font:700 24px/1 "Cormorant Garamond",serif;text-decoration:none}.head a{font-weight:600;text-decoration:none}
+.hero{max-width:640px;margin:0 auto}.hero img{width:100%;aspect-ratio:4/5;object-fit:cover}
+h1{font:700 34px/1.12 "Cormorant Garamond",serif;margin-top:24px}.lead{color:var(--mu);margin-top:12px}
+.score{margin-top:12px;font-weight:600}section.w{margin-top:56px}h2{font:700 25px/1.2 "Cormorant Garamond",serif;margin-bottom:12px}
+.book{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:18px}
+.step{font-size:14px;color:var(--mu);margin:16px 0 8px}.step:first-child{margin-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips button,.slots button{border:1.5px solid var(--rule);background:transparent;border-radius:40px;padding:9px 15px;font-size:15px;cursor:pointer}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.slots button{border-radius:6px;padding:9px 0}
+[aria-pressed="true"]{background:var(--ac)!important;border-color:var(--ac)!important;color:#fff}
+.slots button:disabled{opacity:.3;text-decoration:line-through}
+input{width:100%;font:inherit;border:1.5px solid var(--rule);border-radius:6px;padding:12px 14px;background:transparent;color:var(--fg)}
+.send{margin-top:16px;width:100%;border:0;border-radius:6px;background:var(--ac);color:#fff;font-weight:600;padding:16px;cursor:pointer}.send:disabled{opacity:.4}
+.small{font-size:13px;color:var(--mu);margin-top:10px}.done{display:none}.done h3{font:700 24px "Cormorant Garamond",serif;color:var(--ac)}
+.msg{margin-top:12px;background:var(--bg);border-radius:10px;padding:12px 14px;font-size:15px;white-space:pre-line}
+.row{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}.row small{display:block;color:var(--mu);font-size:14px}.row b{white-space:nowrap}
+blockquote{padding:18px 0;border-bottom:1px solid var(--rule)}blockquote p{font-size:19px}blockquote cite{display:block;font-style:normal;color:var(--mu);font-size:14px;margin-top:6px}
+ul.ex{list-style:none;margin-top:6px}ul.ex li{padding:6px 0 6px 18px;position:relative}ul.ex li::before{content:"";position:absolute;left:0;top:15px;width:8px;height:8px;border-radius:50%;background:var(--ac)}
+.links{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}footer{padding:40px 20px 20px;color:var(--mu);font-size:13px;max-width:640px;margin:0 auto}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--rule);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px}
+.bar a{flex:1;text-align:center;text-decoration:none;padding:14px;border-radius:6px;font-weight:600}.bar .c{background:var(--ac);color:#fff}.bar .m{border:1.5px solid var(--fg)}
+@media(min-width:700px){h1{font-size:44px}.hero img{aspect-ratio:16/10}}
+</style></head><body>
+<header class="head">
+<meta name="robots" content="noindex,nofollow"><a class="brand" href="#" id="brand"></a><a id="tel1"></a></header>
+<div class="hero"><img id="photo" alt=""></div>
+<div class="w"><h1 id="title"></h1><p class="lead" id="lead"></p><p class="score" id="score"></p></div>
+<section class="w" id="book"><h2>Записаться</h2>
+ <div class="book" id="form">
+  <p class="step">1. Что делаем</p><div class="chips" id="svc"></div>
+  <p class="step" id="mstep">2. Мастер</p><div class="chips" id="mst"></div>
+  <p class="step">3. Когда</p><div class="chips" id="days"></div><div class="slots" id="slots"></div>
+  <p class="step">4. Имя и телефон</p><input id="nm" placeholder="Имя" autocomplete="given-name"><input id="ph" placeholder="Телефон" inputmode="tel" style="margin-top:8px">
+  <button class="send" id="send" disabled>Записаться</button>
+  <p class="small">Нажимая «Записаться», вы соглашаетесь на обработку персональных данных для записи.</p>
+ </div>
+ <div class="book done" id="done" aria-live="polite"><h3>Заявка отправлена</h3><p>Вам перезвонят или напишут для подтверждения. Так заявка выглядит у мастера:</p><div class="msg" id="msg"></div></div>
+</section>
+<section class="w"><h2>Услуги и цены</h2><div id="price"></div></section>
+<section class="w"><h2>Что пишут</h2><div id="quotes"></div><p style="margin-top:14px"><a id="allrev">Все отзывы в 2ГИС</a></p></section>
+<section class="w" id="exs"><h2>Ещё</h2><ul class="ex" id="extra"></ul></section>
+<section class="w"><h2>Как найти</h2><p id="addr" style="font-size:19px"></p><p id="hours" style="margin-top:8px"></p><div class="links" id="links"></div></section>
+<footer id="foot"></footer>
+<nav class="bar"><a class="m" id="tel2">Позвонить</a><a class="c" href="#book">Записаться</a></nav>
+<script>
+const $=id=>document.getElementById(id),D=DATA,st={};
+document.title=D.name+" — "+D.kind+", "+D.addr+", Екатеринбург";
+$("brand").textContent=D.name;$("tel1").textContent=D.phone;$("tel1").href=$("tel2").href="tel:"+D.tel;
+$("photo").src=D.photo;$("photo").alt=D.name;$("title").textContent=D.title;$("lead").textContent=D.lead;
+$("score").textContent=D.rating+" в 2ГИС, "+D.reviews+" отзывов";
+$("price").innerHTML=D.services.map(s=>`<div class="row"><span>${s[0]}${s[2]&&!/проверить/.test(s[2])?`<small>${s[2]}</small>`:""}</span><b>${s[1]==="уточнить"?"по записи":s[1]}</b></div>`).join("");
+$("quotes").innerHTML=D.quotes.map(q=>`<blockquote><p>${q}</p><cite>отзыв в 2ГИС</cite></blockquote>`).join("");
+$("allrev").href="https://2gis.ru/ekaterinburg/firm/"+D.firm+"/tab/reviews";
+if(D.extra.length)$("extra").innerHTML=D.extra.map(x=>`<li>${x}</li>`).join("");else $("exs").remove();
+$("addr").innerHTML=D.addr+", "+D.district+`<br><a href="https://2gis.ru/ekaterinburg/firm/${D.firm}">Маршрут в 2ГИС</a>`;$("hours").textContent=D.hours;
+$("links").innerHTML=D.links.map(l=>`<a href="${l[1]}">${l[0]}</a>`).join("");
+$("foot").textContent="Демо-версия сайта для «"+D.name+"». Данные из открытой карточки 2ГИС.";
+function chips(el,items,key,after){el.innerHTML="";items.forEach(v=>{const b=document.createElement("button");b.type="button";b.textContent=v;b.setAttribute("aria-pressed",st[key]===v);b.onclick=()=>{st[key]=v;[...el.children].forEach(x=>x.setAttribute("aria-pressed",x===b));after&&after();check()};el.appendChild(b)})}
+function days(){const n=new Date(),f=new Intl.DateTimeFormat("ru",{weekday:"short",day:"numeric"});return[0,1,2,3].map(i=>{const d=new Date(n);d.setDate(n.getDate()+i);return i==0?"Сегодня":i==1?"Завтра":f.format(d)})}
+function seed(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%9973;return h}
+function slots(){const el=$("slots");el.innerHTML="";if(!st.day)return;const now=new Date();for(let h=D.slots_from;h<=D.slots_to;h++){const t=h+":00",b=document.createElement("button");b.type="button";b.textContent=t;b.disabled=seed((st.m||"")+st.day+h)%3===0||(st.day==="Сегодня"&&h<=now.getHours());b.setAttribute("aria-pressed",st.t===t);b.onclick=()=>{st.t=t;[...el.children].forEach(x=>x.setAttribute("aria-pressed",x===b));check()};el.appendChild(b)}}
+function check(){$("send").disabled=!(st.svc&&st.day&&st.t&&$("nm").value.trim()&&$("ph").value.replace(/\D/g,"").length>=10)}
+chips($("svc"),D.services.map(s=>s[0]),"svc");
+if(D.masters.length>1){chips($("mst"),["Любой",...D.masters],"m",slots)}else{$("mstep").remove();$("mst").remove();st.m=D.masters[0]||""}
+document.querySelectorAll(".step").forEach((e,i)=>e.textContent=e.textContent.replace(/^\d+/,i+1));
+chips($("days"),days(),"day",()=>{st.t=null;slots()});["nm","ph"].forEach(i=>$(i).addEventListener("input",check));
+$("send").onclick=()=>{$("msg").textContent="Новая запись с сайта\n"+st.svc+(st.m?", мастер: "+st.m:"")+"\n"+st.day+" в "+st.t+"\n"+$("nm").value.trim()+", "+$("ph").value.trim();$("form").style.display="none";$("done").style.display="block"};
+</script><div style="position:fixed;left:10px;bottom:10px;z-index:2147483647;background:rgba(0,0,0,.72);color:#fff;font:12px/1.2 system-ui,sans-serif;padding:6px 10px;border-radius:999px;pointer-events:none">Демо-версия · не официальный сайт</div>
+</body></html>

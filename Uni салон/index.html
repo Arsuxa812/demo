@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta name="robots" content="noindex,nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uni — салон красоты на Фурманова, 124, Екатеринбург</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* ===== ВСЕ ДАННЫЕ — менять только здесь ===== */
+const DATA = {
+  name: "Uni", addr: "Фурманова, 124", hours: "Каждый день 9:00–22:00",
+  phone: "+7 922 181-18-25", tel: "+79221811825", firm: "70000001032478118",
+  rating: "5,0", reviews: 487, award: "Лучший салон красоты 2026 — премия 2ГИС",
+  photo: "https://i3.photo.2gis.com/main/branch/9/70000001032478118/common",
+  rooms: [   // [направление, что делают, от какой цены ("" — по записи), мастера]
+    ["Волосы", "Стрижки, сложное окрашивание, холодное восстановление, SPA для головы, укладки", "женская от 2 200 ₽, мужская от 1 700 ₽", ["Оксана","Евгений","Елена"]],
+    ["Ногти", "Маникюр и педикюр с покрытием, архитектура, бондирование", "бондирование 2 600 ₽", ["Анастасия","Екатерина","Александра"]],
+    ["Брови и ресницы", "Коррекция, окрашивание, ламинирование, наращивание", "", ["Влада","Елизавета"]],
+    ["Лицо", "Комбинированная чистка и уходовые процедуры", "", ["Шоира"]],
+    ["Массаж", "Индийский массаж: шея, спина, восстановление", "", ["Бинодж"]]
+  ],
+  quotes: [
+    "Даже если попадаешь к разным мастерам, ведут записи о каждом клиенте.",
+    "Я у многих массажистов в Екатеринбурге была и остановилась на Биноджe.",
+    "Ходим сюда всей семьёй: бабушка, мама, дочка.",
+    "Вода с лимончиком и игристое по пятницам — прекрасное дополнение к процедурам.",
+    "Показывала референсы, Оксана сделала всё как надо. Золотые руки."
+  ],
+  small: ["Вода с лимоном и травяной чай", "Игристое по пятницам и субботам", "Парковка — предупредите по звонку", "Можно с собакой", "Выезд мастера на дом"]
+};
+</script>
+<style>
+:root{--paper:#f4efe9;--ink:#171214;--wine:#7a1b2b;--wine2:#9c2a3c;--mute:#74696b;--line:#ddd4cc;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 "Manrope",Arial,sans-serif;overflow-x:hidden}
+a{color:inherit}img{display:block;max-width:100%}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.serif{font-family:"Unbounded",sans-serif;font-weight:400}
+/* ---------- 1. Вход ---------- */
+.enter{position:relative;height:300vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--ink)}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:62% 45%;will-change:transform;filter:grayscale(.35) contrast(1.05)}
+.veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(23,18,20,.92) 0%,rgba(23,18,20,.35) 45%,rgba(122,27,43,.18) 100%)}
+.brand{position:absolute;left:22px;top:20px;color:#fff;font:600 26px/1 "Unbounded",sans-serif;z-index:3;letter-spacing:-.5px;text-transform:uppercase}
+.brand::after{content:"";display:inline-block;width:9px;height:9px;background:var(--wine2);margin-left:4px}
+.call{position:absolute;right:20px;top:24px;color:#fff;z-index:3;text-decoration:none;font-weight:500;font-size:15px;border-bottom:1px solid rgba(255,255,255,.5)}
+.words{position:absolute;left:22px;right:22px;bottom:16vh;color:#fff;z-index:2}
+.words .w1{font:12px/1 "Manrope";letter-spacing:2px;text-transform:uppercase;opacity:.75;display:block;margin-bottom:12px}
+.line{font:600 clamp(36px,10vw,84px)/1.04 "Unbounded",sans-serif;letter-spacing:-1px;text-transform:uppercase;display:block;opacity:0;transform:translateY(40px)}
+.line:last-child{color:#e9b8c0}
+.award{position:absolute;left:22px;bottom:5vh;z-index:2;display:flex;gap:10px;align-items:center;color:#fff;font-size:14px;opacity:0}
+.award i{width:34px;height:34px;background:var(--wine2);display:grid;place-items:center;font-style:normal;color:#fff;font-weight:700}
+.cue{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);color:#fff;opacity:.6;font-size:11px;letter-spacing:2px;text-transform:uppercase;z-index:2}
+/* ---------- 2. Цифры ---------- */
+.num{padding:90px 22px 30px;max-width:720px;margin:0 auto;border-bottom:1px solid var(--line)}
+.num .big{font:600 clamp(96px,26vw,200px)/0.9 "Unbounded",sans-serif;color:var(--wine);letter-spacing:-6px}
+.num p{font-size:20px;max-width:24ch;margin-top:14px}
+.stars{display:flex;gap:6px;margin:18px 0 40px}
+.stars span{width:22px;height:22px;background:var(--wine);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);transform:scale(0)}
+/* ---------- 3. Направления (горизонтально) ---------- */
+.rooms{position:relative;height:500vh;margin-top:60px}
+.track-wrap{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center}
+.track{display:flex;gap:14px;padding:0 22px;will-change:transform}
+.room{flex:0 0 min(84vw,500px);height:min(74vh,620px);border-radius:4px;background:var(--ink);color:#f3ece6;padding:26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.room:nth-child(3n+2){background:var(--white);color:var(--ink);border:1px solid var(--line)}
+.room:nth-child(3n){background:var(--wine);color:#fff}
+.room .n{font:600 56px/1 "Unbounded",sans-serif;opacity:.18;display:block;margin-bottom:18px;letter-spacing:-2px}
+.room h2{font:600 clamp(26px,7vw,44px)/1.05 "Unbounded",sans-serif;text-transform:uppercase;letter-spacing:-.5px;hyphens:auto}
+.room p{opacity:.85;margin-top:12px}
+.room .pr{margin-top:14px;font-weight:700}
+.room .ms{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.room .ms span{border:1px solid currentColor;border-radius:2px;padding:4px 10px;font-size:13px;opacity:.8}
+.room button{margin-top:18px;align-self:stretch;border:0;border-radius:2px;padding:14px 18px;background:var(--wine2);color:#fff;font-weight:700;text-align:left}
+.room:nth-child(3n) button{background:#fff;color:var(--wine)}
+.room .leafy{display:none}
+.hint{position:absolute;left:22px;bottom:22px;color:var(--mute);font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+/* ---------- 4. Отзывы бегущей лентой ---------- */
+.marq{overflow:hidden;padding:60px 0;margin-top:40px;background:var(--wine);color:#fff}
+.marq .row{display:flex;gap:50px;white-space:nowrap;animation:m 48s linear infinite;width:max-content}
+.marq .row span{font:400 26px/1.2 "Unbounded",sans-serif;letter-spacing:-.3px}
+.marq .row span::after{content:"/";opacity:.4;margin-left:50px}
+@keyframes m{to{transform:translateX(-50%)}}
+/* ---------- 5. Мелочи + адрес ---------- */
+.small{max-width:720px;margin:0 auto;padding:70px 22px 20px}
+.small h3{font:600 30px/1.1 "Unbounded",sans-serif;text-transform:uppercase;letter-spacing:-.5px;margin-bottom:18px}
+.small ul{counter-reset:s}
+.small li{list-style:none;font-size:19px;padding:14px 0;border-bottom:1px solid var(--line);display:flex;gap:16px;counter-increment:s}
+.small li::before{content:"0" counter(s);font:600 13px/1.9 "Unbounded",sans-serif;color:var(--wine)}
+.where{max-width:720px;margin:0 auto;padding:40px 22px 140px}
+.where p{font:500 24px/1.35 "Unbounded",sans-serif;letter-spacing:-.3px}
+.where a{font-size:16px}
+#map{display:inline-block;margin-top:14px;color:var(--wine);font-weight:700}
+footer{max-width:720px;margin:0 auto;padding:0 22px 120px;font-size:12px;color:var(--mute)}
+/* ---------- запись ---------- */
+.island{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:20;background:var(--ink);color:#fff;border-radius:6px;width:min(92vw,420px);height:62px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.28);transition:height .45s cubic-bezier(.2,.9,.2,1),width .45s}
+.island.open{height:min(82vh,640px)}
+.island .bar{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 20px}
+.island .bar b{font-weight:600}
+.island .bar button{border:0;border-radius:3px;background:var(--wine2);color:#fff;font-weight:700;padding:12px 18px}
+.inner{padding:4px 20px 20px;height:calc(100% - 62px);overflow:auto;opacity:0;transition:opacity .3s .15s}
+.island.open .inner{opacity:1}
+.step{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#a99ea0;margin:16px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{border:1px solid #3d3437;background:none;color:#fff;border-radius:3px;padding:8px 13px;font-size:15px}
+.chips button[aria-pressed=true]{background:var(--wine2);border-color:var(--wine2)}
+.chips button:disabled{opacity:.3;text-decoration:line-through}
+.inner input{width:100%;font:inherit;background:#241d20;border:1px solid #3d3437;color:#fff;border-radius:3px;padding:12px;margin-top:8px}
+.send{width:100%;margin-top:14px;border:0;border-radius:3px;background:var(--wine2);color:#fff;font-weight:700;padding:15px}
+.law{font-size:12px;color:#968b8d;margin-top:8px}
+.okm{white-space:pre-line;background:#241d20;border-radius:3px;padding:14px;margin-top:10px;font-size:15px}
+@media (prefers-reduced-motion:reduce){.marq .row{animation:none}.enter,.rooms{height:auto}.stage{position:relative;height:100svh}.track-wrap{position:relative;height:auto;display:block}.track{flex-direction:column;transform:none!important}.room{flex:none;width:auto;height:auto;min-height:440px}.hint{display:none}.line,.award{opacity:1;transform:none}}
+</style></head><body>
+
+<section class="enter" id="enter">
+  <div class="stage">
+    <img id="photo" alt="Светлый зал салона Uni с живыми растениями">
+    <div class="veil"></div>
+    <span class="brand" id="brand"></span><a class="call" id="call1"></a>
+    <div class="words">
+      <span class="w1">Фурманова, 124 · каждый день до 22:00</span>
+      <span class="line">Волосы.</span><span class="line">Ногти.</span><span class="line">Брови.</span><span class="line">Тишина.</span>
+    </div>
+    <div class="award" id="award"><i>1</i><span id="awt"></span></div>
+    <span class="cue">листайте</span>
+  </div>
+</section>
+
+<section class="num">
+  <div class="big" id="cnt">0</div>
+  <p>отзывов в 2ГИС, и средняя оценка <b id="rt"></b>. Гости возвращаются годами.</p>
+  <div class="stars" id="stars"><span></span><span></span><span></span><span></span><span></span></div>
+</section>
+
+<section class="rooms" id="rooms">
+  <div class="track-wrap"><div class="track" id="track"></div><span class="hint">5 направлений в одном зале →</span></div>
+</section>
+
+<div class="marq" aria-label="Отзывы гостей"><div class="row" id="marq"></div></div>
+
+<section class="small"><h3>Мелочи, которые<br>замечают</h3><ul id="small"></ul></section>
+<section class="where"><p id="where"></p><a id="map">Маршрут в 2ГИС →</a></section>
+<footer>Демо-версия сайта для салона Uni. Фото, услуги и отзывы — из открытой карточки 2ГИС.</footer>
+
+<div class="island" id="island" role="dialog" aria-label="Запись в салон">
+  <div class="bar"><b id="ibar">Запись за 30 секунд</b><button id="itog">Записаться</button></div>
+  <div class="inner" id="inner">
+    <div id="form">
+      <p class="step">Направление</p><div class="chips" id="c1"></div>
+      <p class="step">Мастер</p><div class="chips" id="c2"><span style="color:#968b8d;font-size:14px">сначала направление</span></div>
+      <p class="step">День</p><div class="chips" id="c3"></div>
+      <p class="step">Время</p><div class="chips" id="c4"></div>
+      <input id="nm" placeholder="Имя" autocomplete="given-name"><input id="ph" placeholder="Телефон" inputmode="tel" autocomplete="tel">
+      <button class="send" id="send">Записаться</button>
+      <p class="law">Нажимая кнопку, вы соглашаетесь на обработку персональных данных для записи в салон.</p>
+    </div>
+    <div id="ok" hidden><p class="step">Готово</p><p style="font:600 22px 'Unbounded',sans-serif;text-transform:uppercase">Вы записаны</p><div class="okm" id="okm"></div><p class="law">Администратор подтвердит запись в WhatsApp. Так заявка выглядит у салона.</p></div>
+  </div>
+</div>
+
+<script>
+const $=i=>document.getElementById(i),D=DATA,st={};
+$("brand").textContent=D.name;$("call1").textContent=D.phone;$("call1").href="tel:"+D.tel;$("photo").src=D.photo;
+$("awt").textContent=D.award;$("rt").textContent=D.rating;
+$("track").innerHTML=D.rooms.map((r,i)=>`<article class="room"><div class="leafy"></div><div><span class="n">0${i+1}</span><h2>${r[0]}</h2><p>${r[1]}</p>${r[2]?`<p class="pr">${r[2]}</p>`:`<p class="pr">цена — у администратора</p>`}</div><div><div class="ms">${r[3].map(m=>`<span>${m}</span>`).join("")}</div><button type="button" data-room="${i}">Записаться: ${r[0].toLowerCase()}</button></div></article>`).join("");
+$("marq").innerHTML=[...D.quotes,...D.quotes].map(q=>`<span>${q}</span>`).join("");
+$("small").innerHTML=D.small.map(s=>`<li>${s}</li>`).join("");
+$("where").innerHTML=D.addr+"<br>"+D.hours+`<br><a href="tel:${D.tel}">${D.phone}</a>`;$("map").href="https://2gis.ru/ekaterinburg/firm/"+D.firm;
+
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(window.gsap&&!reduce){
+  gsap.registerPlugin(ScrollTrigger);
+  if(window.Lenis){const l=new Lenis({lerp:.09});l.on("scroll",ScrollTrigger.update);gsap.ticker.add(t=>l.raf(t*1000));gsap.ticker.lagSmoothing(0)}
+  // 1. камера входит в зал, слова появляются по одному
+  const tl=gsap.timeline({scrollTrigger:{trigger:"#enter",start:"top top",end:"bottom bottom",scrub:.6}});
+  tl.to("#photo",{scale:1.75,yPercent:-6,ease:"none"},0);
+  document.querySelectorAll(".line").forEach((l,i)=>tl.to(l,{opacity:1,y:0,duration:.18},.08+i*.2));
+  tl.to("#award",{opacity:1,duration:.15},.88);
+  // 2. счётчик и звёзды
+  ScrollTrigger.create({trigger:".num",start:"top 75%",once:true,onEnter(){
+    const o={v:0};gsap.to(o,{v:D.reviews,duration:1.8,ease:"power3.out",onUpdate:()=>$("cnt").textContent=Math.round(o.v)});
+    gsap.to("#stars span",{scale:1,duration:.5,stagger:.12,ease:"back.out(3)",delay:.6})}});
+  // 3. комнаты едут вбок
+  const tr=$("track");
+  gsap.to(tr,{x:()=>-(tr.scrollWidth-innerWidth),ease:"none",scrollTrigger:{trigger:"#rooms",start:"top top",end:"bottom bottom",scrub:.5,invalidateOnRefresh:true}});
+}else{document.querySelectorAll(".line").forEach(l=>{l.style.opacity=1;l.style.transform="none"});$("award").style.opacity=1;$("cnt").textContent=D.reviews;document.querySelectorAll("#stars span").forEach(s=>s.style.transform="scale(1)")}
+
+// остров записи
+const isl=$("island");
+function openI(room){isl.classList.add("open");$("itog").textContent="Свернуть";$("ibar").textContent="Запись в Uni";if(room!=null)pickRoom(+room)}
+function closeI(){isl.classList.remove("open");$("itog").textContent="Записаться";$("ibar").textContent="Запись за 30 секунд"}
+$("itog").onclick=()=>isl.classList.contains("open")?closeI():openI();
+document.querySelectorAll("[data-room]").forEach(b=>b.onclick=()=>openI(b.dataset.room));
+function chips(el,items,key,after){el.innerHTML="";items.forEach(v=>{const b=document.createElement("button");b.type="button";b.textContent=v;b.setAttribute("aria-pressed",st[key]===v);b.onclick=()=>{st[key]=v;[...el.children].forEach(x=>x.setAttribute("aria-pressed",x===b));after&&after()};el.appendChild(b)})}
+function pickRoom(i){st.dir=D.rooms[i][0];chips($("c1"),D.rooms.map(r=>r[0]),"dir",()=>masters());masters()}
+function masters(){const r=D.rooms.find(r=>r[0]===st.dir);st.m=null;chips($("c2"),["Любой",...r[3]],"m",times);times()}
+chips($("c1"),D.rooms.map(r=>r[0]),"dir",masters);
+const f=new Intl.DateTimeFormat("ru",{weekday:"short",day:"numeric"});
+chips($("c3"),[0,1,2,3].map(i=>{const d=new Date();d.setDate(d.getDate()+i);return i?(i==1?"Завтра":f.format(d)):"Сегодня"}),"day",times);
+function times(){const el=$("c4");el.innerHTML="";if(!st.day)return;const h0=new Date().getHours();
+ for(let h=9;h<=20;h++){const b=document.createElement("button");b.type="button";b.textContent=h+":00";
+  b.disabled=((h*13+(st.m||"").length*7+st.day.length*5)%3===0)||(st.day==="Сегодня"&&h<=h0);
+  b.onclick=()=>{st.t=b.textContent;[...el.children].forEach(x=>x.setAttribute("aria-pressed",x===b))};el.appendChild(b)}}
+$("send").onclick=()=>{if(!st.dir||!st.day||!st.t){$("c1").scrollIntoView({block:"center"});return}
+ if(!$("nm").value.trim()||$("ph").value.replace(/\D/g,"").length<10){$("ph").focus();return}
+ $("form").hidden=true;$("ok").hidden=false;
+ $("okm").textContent="Новая запись с сайта\n"+st.dir+", мастер: "+(st.m||"любой")+"\n"+st.day+" в "+st.t+"\n"+$("nm").value.trim()+", "+$("ph").value.trim()};
+</script><div style="position:fixed;left:10px;bottom:10px;z-index:2147483647;background:rgba(0,0,0,.72);color:#fff;font:12px/1.2 system-ui,sans-serif;padding:6px 10px;border-radius:999px;pointer-events:none">Демо-версия · не официальный сайт</div>
+</body></html>

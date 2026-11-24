@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TonOneLove — тонировка и автостёкла на Репина, 32, Екатеринбург</title>
+<meta name="description" content="Тонировка, съёмная тонировка, бронеплёнка, замена автостёкол и ремонт сколов в Юго-Западном. 4.9 в 2ГИС. Ежедневно 10–22.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --snow:#f2f3f5;   /* фон: зимний асфальт и снег с их фото */
+  --ink:#000;       /* текст, кнопки */
+  --mute:#5f6670;   /* второстепенное */
+  --rule:#d9dce1;   /* линии */
+  --ok:#1f7a3f;     /* «можно по закону» */
+  --no:#b3261e;     /* «будет штраф» */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--snow);color:var(--ink);font:17px/1.55 "Onest",Arial,sans-serif;padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+a{color:inherit}
+img{display:block;max-width:100%}
+.w{max-width:680px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid #000;outline-offset:3px}
+
+.head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:680px;margin:0 auto}
+.brand{font:700 19px "Unbounded",sans-serif;letter-spacing:-.5px;text-decoration:none}
+.head a.tel{font-weight:600;text-decoration:none}
+
+.hero img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 38%}
+@media(min-width:720px){.hero img{aspect-ratio:16/9;max-height:640px}}
+
+.intro{margin-top:26px}
+h1{font:700 30px/1.15 "Unbounded",sans-serif;letter-spacing:-1px;max-width:16ch}
+.intro p{color:var(--mute);margin-top:12px;max-width:36ch}
+.score{margin-top:14px;font-weight:600}
+.go{display:flex;gap:10px;margin-top:22px}
+.btn{flex:1;display:block;text-align:center;text-decoration:none;background:var(--ink);color:#fff;font-weight:600;padding:16px;border-radius:6px}
+.btn.line{background:none;color:var(--ink);border:1.5px solid var(--ink)}
+
+section.w{margin-top:56px}
+h2{font:700 22px/1.2 "Unbounded",sans-serif;letter-spacing:-.6px;margin-bottom:6px}
+.note{color:var(--mute);font-size:15px}
+
+/* подбор плотности */
+.tint{margin-top:18px;background:#fff;border:1px solid var(--rule);border-radius:12px;padding:16px}
+.glass{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#cfd6dd}
+.glass img{width:100%;height:100%;object-fit:cover;object-position:30% 20%}
+.glass .film{position:absolute;inset:0;background:#0b0f14;transition:opacity .25s ease}
+.glass .pct{position:absolute;right:12px;bottom:6px;font:700 54px/1 "Unbounded",sans-serif;color:#fff;letter-spacing:-2px;mix-blend-mode:difference}
+.opts{display:flex;gap:6px;margin-top:14px}
+.opts button{flex:1;font:600 15px "Onest",sans-serif;padding:10px 0;border:1.5px solid var(--rule);background:#fff;border-radius:6px;cursor:pointer;color:var(--ink)}
+.opts button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.law{margin-top:14px;font-size:15px;line-height:1.5}
+.law b{font-weight:600}
+.law .y{color:var(--ok)} .law .n{color:var(--no)}
+.law p+p{margin-top:6px}
+@media (prefers-reduced-motion:reduce){.glass .film{transition:none}}
+
+/* цены */
+.list{margin-top:14px}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--rule)}
+.row small{display:block;color:var(--mute);font-size:14px}
+.row .p{white-space:nowrap;font-weight:600}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.big div{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:14px}
+.big b{display:block;font:700 22px/1.1 "Unbounded",sans-serif;letter-spacing:-.8px;margin-top:6px}
+.big span{font-size:14px;color:var(--mute)}
+
+.split{display:grid;gap:16px;margin-top:16px}
+.split img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%}
+@media(min-width:720px){.split{grid-template-columns:1fr 1fr;align-items:center}}
+
+blockquote{padding:20px 0;border-bottom:1px solid var(--rule)}
+blockquote p{font-size:19px;line-height:1.45}
+blockquote cite{display:block;font-style:normal;color:var(--mute);font-size:15px;margin-top:8px}
+
+.addr{margin-top:14px;font-size:19px;line-height:1.45}
+.addr p+p{margin-top:12px}
+
+footer{padding:40px 20px 20px;color:var(--mute);font-size:14px;max-width:680px;margin:0 auto}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--snow);border-top:1px solid var(--rule);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px}
+.bar a{flex:1;text-align:center;text-decoration:none;padding:14px;border-radius:6px;font-weight:600}
+.bar .c{background:var(--ink);color:#fff}
+.bar .m{border:1.5px solid var(--ink)}
+@media(min-width:720px){h1{font-size:42px}}
+.film-scene{height:240vh;position:relative;max-width:680px;margin:0 auto}
+.fs-stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.fs-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fs-film{position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,10,14,.93),rgba(16,22,30,.88));clip-path:inset(0 100% 0 0);will-change:clip-path}
+.fs-edge{position:absolute;top:0;bottom:0;right:0;width:3px;background:rgba(255,255,255,.7);box-shadow:0 0 24px 6px rgba(255,255,255,.35)}
+.fs-txt{position:absolute;left:20px;bottom:calc(96px + env(safe-area-inset-bottom));color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.fs-txt span{display:block;font-size:15px;opacity:.9}
+.fs-txt b{display:block;font:700 92px/1 "Unbounded",sans-serif;letter-spacing:-4px;margin-top:6px}
+.fs-txt small{font-size:14px;opacity:.85}
+@media (prefers-reduced-motion:reduce){.film-scene{height:auto}.fs-stage{position:relative;height:70vh}}
+</style>
+</head>
+<body>
+
+<header class="head">
+<meta name="robots" content="noindex,nofollow">
+  <a class="brand" href="#">TonOneLove</a>
+  <a class="tel" href="tel:+73432664244">+7 343 266-42-44</a>
+</header>
+
+<section class="film-scene" id="fs"><div class="fs-stage">
+  <img src="img/hero.jpg" alt="Лобовое стекло с атермальной плёнкой «хамелеон»">
+  <div class="fs-film" id="fsf"><i class="fs-edge"></i></div>
+  <div class="fs-txt"><span id="fst1">Листайте — наклеим плёнку</span><b id="fspct">100%</b><small>светопропускание</small></div>
+</div></section>
+
+<div class="w intro">
+  <h1>Тонировка и автостёкла на Репина,&nbsp;32</h1>
+  <p>Затонируем, растонируем, отремонтируем скол или заменим стекло. Юго-Западный, каждый день с 10 до 22.</p>
+  <p class="score">4,9 в 2ГИС, 82 отзыва</p>
+  <div class="go">
+    <a class="btn" href="tel:+73432664244">Позвонить</a>
+    <a class="btn line" href="https://vk.com/tononelove">Написать в ВК</a>
+  </div>
+</div>
+
+<section class="w" id="tint">
+  <h2>Насколько темно будет</h2>
+  <p class="note">Выберите плотность плёнки: чем меньше процент, тем темнее стекло</p>
+  <div class="tint">
+    <div class="glass"><img src="img/hero.jpg" alt=""><div class="film" id="film"></div><div class="pct" id="pct">35%</div></div>
+    <div class="opts" role="group" aria-label="Светопропускание плёнки">
+      <button type="button" data-v="5">5%</button>
+      <button type="button" data-v="15">15%</button>
+      <button type="button" data-v="35" aria-pressed="true">35%</button>
+      <button type="button" data-v="50">50%</button>
+      <button type="button" data-v="75">75%</button>
+    </div>
+    <div class="law" id="law"></div>
+  </div>
+</section>
+
+<section class="w" id="price">
+  <h2>Цены</h2>
+  <p class="note">Точную цену скажем по марке и модели машины</p>
+  <div class="list">
+    <div class="row"><span>Передние боковые стёкла</span><span class="p">от 1 500 ₽</span></div>
+    <div class="row"><span>Задняя полусфера<small>заднее стекло и задние боковые</small></span><span class="p">от 2 500 ₽</span></div>
+    <div class="row"><span>Лобовое стекло</span><span class="p">от 1 500 ₽</span></div>
+    <div class="row"><span>Съёмная тонировка<small>снимается за пару минут</small></span><span class="p">от 2 000 ₽</span></div>
+    <div class="row"><span>Скол или трещина на лобовом</span><span class="p">от 500 ₽</span></div>
+    <div class="row"><span>Датчик дождя, зеркало заднего вида</span><span class="p">от 500 ₽</span></div>
+    <div class="row"><span>Тонировка газели</span><span class="p">от 1 000 ₽</span></div>
+  </div>
+  <div class="big">
+    <div><span>Бронеплёнка на перед машины</span><b>от 55 000 ₽</b></div>
+    <div><span>Бронирование лобового</span><b>от 18 000 ₽</b></div>
+    <div><span>Бронирование фар</span><b>5 000 ₽</b></div>
+    <div><span>Замена автостекла</span><b>от 2 000 ₽</b></div>
+  </div>
+</section>
+
+<section class="w">
+  <h2>Замена и ремонт стёкол</h2>
+  <div class="split">
+    <img src="img/glass.jpg" alt="Установка нового лобового стекла">
+    <p>Трещину на лобовом останавливаем, пока она не пошла дальше. Если стекло уже не спасти, подберём и поставим новое здесь же.</p>
+  </div>
+</section>
+
+<section class="w" id="reviews">
+  <h2>Что пишут</h2>
+  <blockquote><p>Грамотный тонировщик! Сделано без косяков. Плёнка атермальная, Корея UV Aquamarine.</p><cite>Артур, 2ГИС</cite></blockquote>
+  <blockquote><p>Отлично всё сделали, 2 скола и трещину остановили. Быстро и по цене адекватно.</p><cite>Дмитрий, 2ГИС</cite></blockquote>
+  <blockquote><p>Делала тут съёмную тонировку, всё супер. Смотрится круто, самая чёткая сейчас на районе.</p><cite>Kate, 2ГИС</cite></blockquote>
+  <p style="margin-top:16px"><a href="https://2gis.ru/ekaterinburg/firm/70000001063509622/tab/reviews">Все отзывы в 2ГИС</a></p>
+</section>
+
+<section class="w" id="contacts">
+  <h2>Где мы</h2>
+  <div class="addr">
+    <p>Репина, 32, Юго-Западный<br><a href="https://2gis.ru/ekaterinburg/firm/70000001063509622">Построить маршрут в 2ГИС</a></p>
+    <p>Каждый день с 10:00 до 22:00<br><a href="tel:+73432664244">+7 343 266-42-44</a></p>
+  </div>
+</section>
+
+<footer>TonOneLove, тонировочно-установочный центр, Екатеринбург</footer>
+
+<nav class="bar">
+  <a class="m" href="https://vk.com/tononelove">ВКонтакте</a>
+  <a class="c" href="tel:+73432664244">Позвонить</a>
+</nav>
+
+<script>
+const film=document.getElementById('film'),pct=document.getElementById('pct'),law=document.getElementById('law');
+function set(v){
+  film.style.opacity=(1-v/100)*0.92;
+  pct.textContent=v+'%';
+  const front=v>=70, wind=v>=75;
+  law.innerHTML=
+    '<p><b>Задняя полусфера:</b> <span class="y">можно</span>, любой процент.</p>'+
+    '<p><b>Передние боковые:</b> '+(front?'<span class="y">можно</span>, по закону от 70%.':'<span class="n">будет штраф</span>, по закону нужно от 70%. Для них есть съёмная тонировка.')+'</p>'+
+    '<p><b>Лобовое:</b> '+(wind?'<span class="y">можно</span>, по закону от 75%.':'<span class="n">нельзя</span>, по закону нужно от 75%.')+'</p>';
+}
+document.querySelectorAll('.opts button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.opts button').forEach(x=>x.setAttribute('aria-pressed','false'));
+  b.setAttribute('aria-pressed','true'); set(+b.dataset.v);
+}));
+set(35);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+// Сцена: при прокрутке плёнка ложится на стекло, светопропускание падает 100% → 5%
+if(window.gsap&&!matchMedia("(prefers-reduced-motion: reduce)").matches){gsap.registerPlugin(ScrollTrigger);
+ const f=document.getElementById("fsf"),p=document.getElementById("fspct"),t=document.getElementById("fst1");
+ ScrollTrigger.create({trigger:"#fs",start:"top top",end:"bottom bottom",scrub:true,onUpdate(s){const k=s.progress;
+  f.style.clipPath=`inset(0 ${100-k*100}% 0 0)`;const v=Math.round(100-k*95);p.textContent=v+"%";
+  t.textContent=k<.05?"Листайте — наклеим плёнку":k<.95?"Плёнка ложится…":"Готово. Передние — съёмная, по закону от 70%"}})}
+</script>
+<div style="position:fixed;left:10px;bottom:10px;z-index:2147483647;background:rgba(0,0,0,.72);color:#fff;font:12px/1.2 system-ui,sans-serif;padding:6px 10px;border-radius:999px;pointer-events:none">Демо-версия · не официальный сайт</div>
+</body>
+</html>

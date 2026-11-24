@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta name="robots" content="noindex,nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Harlem park — детейлинг-центр на Ялтинском, 8, Екатеринбург</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
+/* ===== ВСЕ ДАННЫЕ — менять только здесь ===== */
+const DATA = {
+  name: "Harlem park", addr: "Ялтинский пер., 8", area: "Юго-Западный", hours: "Каждый день 10:00–20:00, по записи", open: 10, close: 20,
+  phone: "+7 904 804-33-30", tel: "+79048043330", firm: "70000001116699839",
+  rating: "5,0", reviews: 73,
+  photo: "https://i0.photo.2gis.com/main/branch/9/70000001116699839/common",
+  links: [["WhatsApp", "https://wa.me/79048043330"], ["Telegram", "https://t.me/+79048043330"], ["ВКонтакте", "https://vk.ru/harlempark"]],
+  services: [ // [услуга, что это, цена числом, "от"?, группа]
+    ["Полировка кузова", "убираем мелкие царапины и голограммы", 15000, true, "Кузов"],
+    ["Керамика", "защитный слой, блеск надолго", 10000, false, "Кузов"],
+    ["Воск", "быстрый блеск и защита", 6000, false, "Кузов"],
+    ["Химчистка салона", "ткань, ковролин, кожа", 15000, true, "Салон"],
+    ["Тонировка", "плёнка на стёкла", 5000, true, "Стёкла"],
+    ["Бронеплёнка на зоны риска", "капот, бампер, фары, зеркала", 55000, true, "Защита"],
+    ["Оклейка винилом", "новый цвет без покраски", 150000, true, "Защита"]
+  ],
+  quotes: [
+    ["Игорь", "Работа была выполнена быстро и качественно, проконсультировали по всем возможным моментам, дали гарантию на работы"],
+    ["Глеб", "Ребята всё разобрали по уму, аккуратно прошлись по тканям и ковролину."],
+    ["Сергей", "Пока ждал в комнате ожидания смотрел ВК видео на мягком диване, все прошло без лишних задержек."]
+  ],
+  perks: [["Гарантия", "на выполненные работы"], ["Комната ожидания", "диван, ТВ, кофе"], ["Терминал", "оплата картой, в том числе бизнес-картой"], ["Консультация", "расскажем, что нужно именно вашей машине"]]
+};
+</script>
+<style>
+:root{--bg:#0c0c0d;--panel:#161618;--line:#2a2a2e;--fg:#f2f0ea;--mute:#96958f;--acc:#c8f04a;--ink:#0c0c0d}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 "Manrope",Arial,sans-serif;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+a{color:inherit}img{display:block;max-width:100%}button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.w{max-width:640px;margin:0 auto;padding:0 18px}
+.d{font-family:"Prosto One",sans-serif;font-weight:400}
+header{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:16px 18px}
+.logo{font:20px "Prosto One";letter-spacing:.3px}.logo i{font-style:normal;color:var(--acc)}
+header a{text-decoration:none;font-weight:500;font-size:15px;white-space:nowrap}
+.hero{position:relative;min-height:min(100svh,860px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 60%;transform:scale(1.04)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,12,13,.6) 0%,rgba(12,12,13,0) 28%,rgba(12,12,13,.85) 66%,var(--bg) 100%)}
+.hin{position:relative;z-index:2;padding:90px 18px 28px;max-width:640px;margin:0 auto;width:100%}
+.where{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute)}
+h1{font:clamp(32px,9.6vw,58px)/1.05 "Prosto One";margin:10px 0 14px}
+h1 em{font-style:normal;color:var(--acc)}
+.lead{color:#cfcdc6;max-width:34ch}
+.facts{display:flex;gap:22px;margin-top:20px}
+.facts div b{display:block;font:26px "Prosto One";color:var(--acc)}
+.facts div span{font-size:13px;color:var(--mute)}
+section{padding:68px 0 0}
+h2{font:clamp(25px,7vw,36px)/1.12 "Prosto One";margin-bottom:8px}
+.sub{color:var(--mute);margin-bottom:22px}
+/* конструктор */
+.grp{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin:18px 0 8px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-bottom:8px;transition:border-color .2s,background .2s}
+.opt .box{flex:none;width:22px;height:22px;border-radius:6px;border:1.5px solid var(--mute);display:grid;place-items:center;transition:all .2s}
+.opt .box::after{content:"";width:10px;height:6px;border:2px solid var(--ink);border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.opt[aria-pressed=true]{border-color:var(--acc);background:#1b1d14}
+.opt[aria-pressed=true] .box{background:var(--acc);border-color:var(--acc)}.opt[aria-pressed=true] .box::after{opacity:1}
+.opt .tx{flex:1;min-width:0}.opt b{display:block}.opt span{color:var(--mute);font-size:14px}
+.opt .pr{font:16px "Prosto One";white-space:nowrap}
+.total{position:sticky;bottom:calc(76px + env(safe-area-inset-bottom));margin-top:14px;background:var(--fg);color:var(--ink);border-radius:14px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:5;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.total small{display:block;font-size:12px;color:#55544f}
+.total b{font:24px "Prosto One";font-variant-numeric:tabular-nums}
+.total button{background:var(--ink);color:var(--fg);padding:12px 16px;border-radius:10px;font-weight:700;white-space:nowrap}
+.total button:disabled{opacity:.35;cursor:default}
+.note{font-size:13px;color:var(--mute);margin-top:12px}
+/* плюсы */
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.perk{background:var(--panel);border-radius:12px;padding:16px}
+.perk b{display:block;font:17px "Prosto One";margin-bottom:4px}.perk span{color:var(--mute);font-size:14px}
+/* отзывы */
+.q{padding:20px 0;border-bottom:1px solid var(--line)}
+.q p{font-size:19px;line-height:1.45}
+.q cite{display:block;margin-top:8px;font-style:normal;color:var(--mute);font-size:14px}
+.big5{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}.big5 b{font:64px/1 "Prosto One";color:var(--acc)}.big5 span{color:var(--mute)}
+.addr p{font:21px/1.4 "Prosto One"}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.btns a{padding:11px 15px;border:1px solid var(--line);border-radius:10px;text-decoration:none;font-weight:500}
+footer{padding:44px 18px 30px;max-width:640px;margin:0 auto;font-size:12px;color:var(--mute)}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(12,12,13,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+.dock a,.dock button{flex:1;text-align:center;padding:14px;border-radius:12px;font-weight:700;text-decoration:none}
+.dock a{border:1px solid var(--line)}.dock button{background:var(--acc);color:var(--ink)}
+/* запись */
+.sheet{position:fixed;inset:0;z-index:30;display:none}.sheet.on{display:block}
+.sheet .sh{position:absolute;inset:0;background:rgba(0,0,0,.6)}
+.sheet .pn{position:absolute;left:0;right:0;bottom:0;max-height:92svh;overflow:auto;background:var(--bg);border-top:1px solid var(--line);border-radius:18px 18px 0 0;padding:18px 18px calc(22px + env(safe-area-inset-bottom));max-width:640px;margin:0 auto;animation:up .3s cubic-bezier(.2,.9,.2,1)}
+@keyframes up{from{transform:translateY(40%);opacity:0}}
+.pn .top{display:flex;justify-content:space-between;align-items:center}
+.pn .top b{font:20px "Prosto One"}.pn .x{font-size:26px;line-height:1;color:var(--mute);padding:4px 8px}
+.lbl{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--mute);margin:16px 0 8px}
+.chosen{background:var(--panel);border-radius:12px;padding:12px 14px;font-size:15px}
+.chosen em{font-style:normal;color:var(--acc)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{padding:9px 13px;border:1px solid var(--line);border-radius:10px;font-size:15px}
+.chips button[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:var(--ink)}
+.chips button:disabled{opacity:.3;text-decoration:line-through}
+.pn input{width:100%;font:inherit;background:var(--panel);border:1px solid var(--line);color:var(--fg);border-radius:10px;padding:13px;margin-top:8px}
+.send{width:100%;margin-top:14px;border-radius:12px;background:var(--acc);color:var(--ink);font-weight:700;padding:15px}
+.send:disabled{opacity:.4;cursor:default}
+.law{font-size:12px;color:var(--mute);margin-top:8px}
+.msg{background:var(--panel);border:1px solid var(--line);border-radius:14px 14px 14px 4px;padding:14px;margin-top:12px;white-space:pre-line;font-size:15px}
+.msg small{display:block;color:var(--mute);font-size:12px;margin-bottom:6px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.sheet .pn{animation:none}}
+</style></head><body>
+
+<header>
+<meta name="robots" content="noindex,nofollow"><span class="logo" id="logo"></span><a id="call"></a></header>
+
+<div class="hero">
+  <img id="photo" alt="Автомобиль после работ в детейлинг-центре Harlem park">
+  <div class="hin">
+    <p class="where" id="where"></p>
+    <h1>Машина, которую <em>не узнать</em></h1>
+    <p class="lead">Полировка, керамика, химчистка, бронеплёнка. Соберите уход ниже — сразу увидите цену и запишетесь.</p>
+    <div class="facts"><div><b id="rt"></b><span>рейтинг в 2ГИС</span></div><div><b id="rc"></b><span>отзывов</span></div><div><b>✓</b><span>гарантия</span></div></div>
+  </div>
+</div>
+
+<main class="w">
+  <section class="rv" id="build">
+    <h2>Соберите уход</h2>
+    <p class="sub">Отметьте, что нужно машине. Цены с карточки 2ГИС, точную назовём после осмотра.</p>
+    <div id="opts"></div>
+    <div class="total" aria-live="polite"><div><small id="tc">ничего не выбрано</small><b id="tt">0 ₽</b></div><button type="button" id="tgo" disabled>Записаться</button></div>
+    <p class="note">«от» — минимальная цена для легкового авто. Для кроссовера и внедорожника выше.</p>
+  </section>
+
+  <section class="rv">
+    <h2>Почему к нам возвращаются</h2>
+    <p class="sub">Всё это — из отзывов клиентов.</p>
+    <div class="perks" id="perks"></div>
+  </section>
+
+  <section class="rv">
+    <div class="big5"><b id="rt2"></b><span id="rc2"></span></div>
+    <h2>Что пишут</h2>
+    <div id="qs"></div>
+    <p class="note"><a id="allr">Все отзывы в 2ГИС →</a></p>
+  </section>
+
+  <section class="rv addr">
+    <h2>Как найти</h2>
+    <p id="adr"></p>
+    <div class="btns" id="btns"></div>
+  </section>
+</main>
+<footer>Демо-версия сайта для детейлинг-центра Harlem park. Цены, фото и отзывы — из открытой карточки 2ГИС; свободное время в записи — пример.</footer>
+
+<div class="dock"><a id="call2">Позвонить</a><button type="button" id="book">Записаться</button></div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Запись">
+  <div class="sh" id="shade"></div>
+  <div class="pn">
+    <div class="top"><b>Запись в Harlem park</b><button class="x" id="close" aria-label="Закрыть">×</button></div>
+    <div id="form">
+      <p class="lbl">Что делаем</p><div class="chosen" id="chosen"></div>
+      <p class="lbl">День</p><div class="chips" id="c2"></div>
+      <p class="lbl">Время</p><div class="chips" id="c3"><span class="note">сначала выберите день</span></div>
+      <p class="lbl">Машина и контакты</p>
+      <input id="car" placeholder="Марка, модель и год, например BMW X5 2019">
+      <input id="nm" placeholder="Имя" autocomplete="given-name">
+      <input id="ph" placeholder="Телефон" inputmode="tel" autocomplete="tel">
+      <button class="send" id="send" type="button" disabled>Записаться на осмотр</button>
+      <p class="law">Нажимая кнопку, вы соглашаетесь на обработку персональных данных для записи.</p>
+    </div>
+    <div id="done" hidden>
+      <p class="lbl">Готово</p>
+      <p class="d" style="font-size:24px">Ждём вас</p>
+      <div class="msg" id="msg"></div>
+      <p class="law">Так заявка приходит мастеру в Telegram. Он перезвонит, уточнит машину и назовёт точную цену.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const $=i=>document.getElementById(i),D=DATA,sel=new Set(),st={};
+const rub=n=>n.toLocaleString("ru-RU").replace(/,/g," ")+" ₽";
+$("logo").innerHTML="Harlem<i>.</i>park";$("call").textContent=D.phone;$("call").href=$("call2").href="tel:"+D.tel;
+$("photo").src=D.photo;$("where").textContent=D.addr+" · "+D.area+" · каждый день до "+D.close+":00";
+$("rt").textContent=$("rt2").textContent=D.rating;$("rc").textContent=D.reviews;$("rc2").textContent=D.reviews+" отзывов в 2ГИС";
+$("allr").href="https://2gis.ru/ekaterinburg/firm/"+D.firm+"/tab/reviews";
+$("qs").innerHTML=D.quotes.map(q=>`<div class="q"><p>«${q[1]}»</p><cite>${q[0]}, отзыв в 2ГИС</cite></div>`).join("");
+$("perks").innerHTML=D.perks.map(p=>`<div class="perk"><b>${p[0]}</b><span>${p[1]}</span></div>`).join("");
+$("adr").innerHTML=D.addr+", "+D.area+"<br>"+D.hours+`<br><a href="tel:${D.tel}">${D.phone}</a>`;
+$("btns").innerHTML=`<a href="https://2gis.ru/ekaterinburg/firm/${D.firm}">Маршрут в 2ГИС</a>`+D.links.map(l=>`<a href="${l[1]}">${l[0]}</a>`).join("");
+
+/* конструктор */
+let html="",g="";
+D.services.forEach((s,i)=>{if(s[4]!==g){g=s[4];html+=`<p class="grp">${g}</p>`}
+  html+=`<button class="opt" type="button" aria-pressed="false" data-i="${i}"><span class="box"></span><span class="tx"><b>${s[0]}</b><span>${s[1]}</span></span><span class="pr">${s[3]?"от ":""}${rub(s[2])}</span></button>`});
+$("opts").innerHTML=html;
+let shown=0;
+function total(){const items=[...sel].map(i=>D.services[i]),sum=items.reduce((a,s)=>a+s[2],0),from=items.some(s=>s[3]);
+  $("tc").textContent=items.length?items.length+(items.length==1?" услуга":items.length<5?" услуги":" услуг")+(from?", от":""):"ничего не выбрано";
+  $("tgo").disabled=!items.length;
+  const a=shown,b=sum,t0=performance.now();shown=sum;
+  (function f(t){const k=Math.min(1,(t-t0)/350);$("tt").textContent=rub(Math.round(a+(b-a)*(1-Math.pow(1-k,3))));if(k<1)requestAnimationFrame(f)})(t0)}
+document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;sel.has(i)?sel.delete(i):sel.add(i);b.setAttribute("aria-pressed",sel.has(i));total()});
+
+/* запись */
+const pad=n=>String(n).padStart(2,"0");
+const fmt=new Intl.DateTimeFormat("ru",{weekday:"short",day:"numeric"});
+const days=[0,1,2,3,4].map(i=>{const d=new Date();d.setDate(d.getDate()+i);return i==0?"Сегодня":i==1?"Завтра":fmt.format(d)});
+const seed=s=>[...s].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,7);
+function chips(el,items,key,after){el.innerHTML="";items.forEach(v=>{const b=document.createElement("button");b.type="button";b.textContent=v;b.setAttribute("aria-pressed",st[key]===v);b.onclick=()=>{st[key]=v;[...el.children].forEach(x=>x.setAttribute("aria-pressed",x===b));after&&after();check()};el.appendChild(b)})}
+function times(){const el=$("c3");el.innerHTML="";st.t=null;const now=new Date(),nowM=now.getHours()*60+now.getMinutes();let any=false;
+  for(let h=D.open;h<D.close-1;h++){const t=h+":00",b=document.createElement("button");b.type="button";b.textContent=t;
+    b.disabled=seed(st.day+t)%3===0||(st.day==="Сегодня"&&h*60<=nowM+60);if(!b.disabled)any=true;
+    b.onclick=()=>{st.t=t;[...el.children].forEach(x=>x.setAttribute("aria-pressed",x===b));check()};el.appendChild(b)}
+  if(!any)el.innerHTML='<span class="note">на сегодня мест нет — выберите другой день</span>'}
+function check(){$("send").disabled=!(st.day&&st.t&&$("nm").value.trim()&&$("ph").value.replace(/\D/g,"").length>=10)}
+["nm","ph","car"].forEach(i=>$(i).addEventListener("input",check));
+function chosenText(){const it=[...sel].map(i=>D.services[i]);return it.length?it.map(s=>s[0]).join(", ")+` · <em>${it.some(s=>s[3])?"от ":""}${rub(it.reduce((a,s)=>a+s[2],0))}</em>`:"Осмотр и консультация — подберём, что нужно машине"}
+function openS(){$("chosen").innerHTML=chosenText();chips($("c2"),days,"day",times);$("form").hidden=false;$("done").hidden=true;$("sheet").classList.add("on");document.body.style.overflow="hidden";check()}
+function closeS(){$("sheet").classList.remove("on");document.body.style.overflow=""}
+$("book").onclick=$("tgo").onclick=openS;$("close").onclick=closeS;$("shade").onclick=closeS;
+addEventListener("keydown",e=>{if(e.key==="Escape")closeS()});
+$("send").onclick=()=>{const it=[...sel].map(i=>D.services[i][0]),car=$("car").value.trim();
+  $("msg").innerHTML="<small>Telegram · бот записи Harlem park</small>";
+  $("msg").append("Новая запись с сайта\n"+(it.length?it.join(", "):"Осмотр и консультация")+"\n"+st.day+" в "+st.t+(car?"\nМашина: "+car:"")+"\n"+$("nm").value.trim()+", "+$("ph").value.trim());
+  $("form").hidden=true;$("done").hidden=false};
+
+if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e))}else document.querySelectorAll(".rv").forEach(e=>e.classList.add("in"));
+</script><div style="position:fixed;left:10px;bottom:10px;z-index:2147483647;background:rgba(0,0,0,.72);color:#fff;font:12px/1.2 system-ui,sans-serif;padding:6px 10px;border-radius:999px;pointer-events:none">Демо-версия · не официальный сайт</div>
+</body></html>
