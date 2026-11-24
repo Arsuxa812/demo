@@ -13,6 +13,8 @@ Get-ChildItem $dst -Recurse -Filter *.html | Where-Object { $_.FullName -notmatc
 }
 Set-Location $dst
 git add -A
+$bad = git -c core.quotepath=false diff --cached --name-only | Where-Object { $_ -notmatch '\.(html|css|js|jpe?g|png|webp|svg|gif)$' -and $_ -notin 'robots.txt','.nojekyll','.gitignore','publish.ps1' }
+if ($bad) { git reset -q; throw "Лишние файлы, не публикую: $bad" }
 git -c core.quotepath=false commit -q -m "Обновление демо-сайтов`n`nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 git push -q
 "Готово: https://arsuxa812.github.io/demo/ (обновится через ~1 мин)"
